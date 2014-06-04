@@ -1,0 +1,4 @@
+**/build/**/*
+**/dist/**/*
+**/node_modules/**/*
+**/webmd-ingest.zip
