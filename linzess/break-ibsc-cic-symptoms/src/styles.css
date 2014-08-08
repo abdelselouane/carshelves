@@ -197,6 +197,9 @@
 	color: #00a5d9;
 }
 
+.c-blue-3{
+	color: #3789b9;
+}
 /**********************************************/
 
 /* Margin Left */
@@ -232,6 +235,22 @@
 /**********************************************/
 
 /* Article CSS */
+
+#linzess_tap .linz-btn {
+	background: url('./img/button-bg.png') 50% 50% no-repeat;
+	color: #fff;
+	display: block;
+	font-size: 90%;
+	font-weight: bold;
+	height: 27px;
+	line-height: 25px; 
+	padding-right: 13px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: 104px;
+}
+
 
 #linzess_tap.article {
 	color: #000;
@@ -355,7 +374,7 @@
 }
 
 #isi ul li {
-	background: url('../../../consumer_assets/site_images/miscellaneous/3x3_black_bullet.gif') 0 6px no-repeat;
+	background: url('http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/miscellaneous/3x3_black_bullet.gif') 0 6px no-repeat;
 	font-size: 90%;
 	margin-bottom: 5px;
 	padding-left: 8px;
@@ -395,17 +414,17 @@
 	margin: 0 0 8px;
 	padding: 0;
 }
-#isi-scroll-rr ul li {
-	background: url('../../../consumer_assets/site_images/miscellaneous/3x3_black_bullet.gif') 0 6px no-repeat;
+#isi-scroll-rr ul li {/*3x3_black_bullet.gif*/
+	background: url('http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/miscellaneous/3x3_black_bullet.gif') 0 6px no-repeat;
 	font-size: 90%;
 	margin-bottom: 5px;
 	padding-left: 8px;
 }
 
-/* PB Module Modification */
+/* header title bar ***/
+
 .titlebar .tb_main {
-	margin: 0 0 0 8px;
-	_margin-left: 4px; /* IE6 hack */
+	margin: 0 ;
 	padding: 12px 0 4px 0;
 }
 .titlebar h1 {
@@ -421,8 +440,8 @@
 .standardSubnav_rdr_fmt {
 
 }
-#standardSubnavSP_rdr #standardSubnav_fmt li {
-    background-image: url('../../../consumer_assets/site_images/miscellaneous/3x3_blue_069_bullet.gif');
+#standardSubnavSP_rdr #standardSubnav_fmt li {/*3x3_blue_069_bullet*/
+    background-image: url('http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/miscellaneous/3x3_blue_069_bullet.gif');
 	font-size: 90%;
 }
 #standardSubnavSP_rdr #standardSubnav_fmt li.standardSubnav_subhead_fmt {
@@ -450,3 +469,20 @@
 	font-weight: normal;
 	padding: 0 5px;
 }
+/*Raill_links*/
+
+#rail_links{
+	margin: 0;
+	padding: 0;
+}
+
+#rail_links a {
+	display: inline;
+	text-decoration: none;
+	font-size: 12px;
+}
+#rail_links span{
+	color: #ccc;
+	font-size: 12px;
+}
+/*************************************/
