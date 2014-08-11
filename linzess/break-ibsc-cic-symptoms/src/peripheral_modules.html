@@ -55,7 +55,7 @@
 							
 							<div id="header" class="titlebar">
 								<div class="tb_main with_attribution">
-									<h1><a onclick="return sl(this,'','header_1');" href="default.htm">Start Breaking from Your Irritable Bowel Syndrome with Constipation (IBS-C) and Chronic Idiopathic Constipation (CIC) Symptoms</a></h1>
+									<h1><a onclick="return sl(this,'','header_1');" href="default.html">Start Breaking from Your Irritable Bowel Syndrome with Constipation (IBS-C) and Chronic Idiopathic Constipation (CIC) Symptoms</a></h1>
 								</div>
 							</div>
 							
@@ -111,127 +111,128 @@
 				<div id="thirdCol_area">
 					<div id="thirdCol_ctr">
 <!-- START Put any right column modules here -->
-<div id="rail_links">
-	<a href="#" ><strong>Important Risk Information</strong></a>
-	<span>|</span>
-	<a href="#" ><strong>Full Prescribing Information</strong></a>
-</div>
-<div id="isi-scroll-rr" class="scrolling">
-	<h4>IMPORTANT RISK INFORMATION</h4>
-	<ul>
-		<li><strong>Do not give LINZESS to children who are under 6 years of age. It may harm them.</strong></li>
-		<li><strong>You should not give LINZESS to children 6 to 17 years of age. It may harm them.</strong></li>
-		<li>Do not take LINZESS if a doctor has told you that you have a bowel blockage (intestinal obstruction).</li>
-	</ul>
-	<h4>What is LINZESS?</h4>
-	<p>LINZESS<sup>&trade;</sup> (linaclotide) is a prescription medication used in adults to treat irritable bowel syndrome with constipation (IBS-C) and chronic idiopathic constipation (CIC). "Idiopathic" means the cause of the constipation is unknown. <strong>It is not known if LINZESS is safe and effective in children.</strong></p>
-	<h4>Before you take LINZESS, tell your doctor:</h4>
-	<ul>
-		<li>If you have any other medical conditions.</li>
-		<li>If you are pregnant or plan to become pregnant. It is not known if LINZESS will harm your unborn baby.</li>
-		<li>If you are breastfeeding or plan to breastfeed. It is not known if LINZESS passes into your breast milk.</li>
-		<li><strong>About all the medicines you take,</strong> including prescription and non-prescription medicines, vitamins, and herbal supplements.</li>
-	</ul>
-	<h4 class="underline">Side Effects</h4>
-	<p><strong>LINZESS can cause serious side effects, including diarrhea, the most common side effect, which can sometimes be severe.</strong> Diarrhea often begins within the first 2 weeks of LINZESS treatment. <strong>Stop taking LINZESS and call your doctor right away if you get severe diarrhea during treatment with LINZESS.</strong></p>
-	<p>Other common side effects of LINZESS include gas, stomach-area (abdominal) pain, swelling, or a feeling of fullness or pressure in your abdomen (distension). Tell your doctor if you have any side effect that bothers you or that does not go away. These are not all the possible side effects of LINZESS. For more information, ask your doctor or pharmacist.</p>
-	<p><strong>In addition, call your doctor or go to the nearest hospital emergency room right away if you develop unusual or severe stomach-area (abdominal) pain, especially if you also have bright red, bloody stools or black stools that look like tar.</strong></p>
-	<h4 class="underline">How to Take LINZESS</h4>
-	<p>Take LINZESS exactly as your doctor tells you to take it. Take LINZESS one time each day on an empty stomach, at least 30 minutes before your first meal of the day. Swallow LINZESS capsules whole. Do not break or chew the capsules.</p>
-	<h4 class="underline">Storing LINZESS</h4>
-	<p>Store LINZESS at room temperature (68°F to 77°F), and keep LINZESS in the bottle it comes in. Keep the LINZESS bottle tightly closed, in a dry place, and keep the desiccant packet (the drying agent) in the bottle. <strong>Keep LINZESS out of the reach of children.</strong></p>
-	<p>Please also see <a href="/click?url=http://www.frx.com/pi/linzess_pi.pdf" onclick="return sl(this,'nw','isi_1');"><strong>Medication Guide</strong></a> within <a href="/click?url=http://www.frx.com/pi/linzess_pi.pdf" onclick="return sl(this,'nw','isi_2');"><strong>Full Prescribing Information</strong></a>.</p>
-</div>
-<script type="text/javascript">
-$(function() {
-	/* Object to make a div with scrolling text scroll automatically */
-	webmd.m.autoscroller = {
-		init: function (settings) {
-			/* save the settings */
-			this.settings = settings;
-			
-			/* look up our node */
-			this.scroller = document.getElementById(this.settings.id);
-			
-			/* reset the scroller position on load if true */
-			this.settings.reset_position_on_load ? this.reset_scroller() : null;
-			
-			/* start the scroller if the auto setting is true */
-			this.settings.scroll_on_load ? this.start_autoscroll() : null;
-		},
-		/* start the autoscroll */
-		start_autoscroll: function() {
-			/* shortcut to the object settings */
-			var s = this.settings;
-			
-			/* stop the scroller to reset vars */
-			this.stop_autoscroll();
-			
-			/* delay the start to smooth the animation */
-			var self = this;
-			this.settings.autoscroll_delayed_exec = setTimeout(function() {
-				self.create_autoscroll_interval();															
-			}, s.delay);
-		},
-		/* create the autoscroll interval */
-		create_autoscroll_interval: function() {
-			/* the object is running */
-			this.settings.autoscroll_is_scrolling = true;
-			
-			/* shortcut to the object settings */
-			var s = this.settings;
-			
-			/* build and execute the interval code */
-			var self = this;
-			this.settings.autoscroll_interval = setInterval(function() {
-				self.autoscroll();									 
-			}, s.interval);
-		},
-		/* this function runs at a specified interval to actually do the scrolling */
-		autoscroll: function() {
-			var scroller = this.scroller;
-			if (typeof(scroller) == 'object') {
-				/* if we're at the end and the config says to do so, reset the scroller */
-				if (scroller.scrollTop >= (scroller.scrollHeight-scroller.clientHeight)) {
-					this.settings.reset_position_on_end ? this.reset_scroller() : null;
-					this.stop_autoscroll();
-				}
-				/* stop the autoscroller if scrollTop has changed since the last interval, indicating user has moved the scrollbar */
-				if (this.settings.autoscroll_last_scrolltop != scroller.scrollTop) {
-					this.stop_autoscroll();
-				}
-				/* do the scroll if is_scrolling is set to true */
-				if ((scroller.scrollTop < scroller.scrollHeight) && this.settings.autoscroll_is_scrolling) {
-					scroller.scrollTop += 1;
-					this.settings.autoscroll_last_scrolltop = scroller.scrollTop;
-				}
-			}
-		},
-		/* stop the scroller */
-		stop_autoscroll: function() {
-			var scroller = this.scroller;
-			clearInterval(this.settings.autoscroll_interval);
-			clearTimeout(this.settings.autoscroll_delayed_exec);
-			this.settings.autoscroll_last_scrolltop = scroller.scrollTop;
-			this.settings.autoscroll_is_scrolling = false;
-		},
-		/* make sure the box starts at the top on page load */
-		reset_scroller: function() {
-			var scroller = this.scroller;
-			if (typeof(scroller) == 'object') {
-				scroller.scrollTop = 0;
-			}
-		}
-	};
-
-	webmd.m.autoscroller.init({
-		delay: 2000,
-		id: 'isi-scroll-rr',
-		reset_position_on_end: true,
-		scroll_on_load: true
-	});
-});
-</script>
+						<div id="rail_links">
+							<a href="/click?url=http://www.frx.com/pi/linzess_pi.pdf" ><strong>Important Risk Information</strong></a>
+							<span>|</span>
+							<a href="#isi" ><strong>Full Prescribing Information</strong></a>
+						</div>
+						<div id="isi-scroll-rr" class="scrolling">
+							<h4>IMPORTANT RISK INFORMATION</h4>
+							<ul>
+								<li><strong>Do not give LINZESS to children who are under 6 years of age. It may harm them.</strong></li>
+								<li><strong>You should not give LINZESS to children 6 to 17 years of age. It may harm them.</strong></li>
+								<li>Do not take LINZESS if a doctor has told you that you have a bowel blockage (intestinal obstruction).</li>
+							</ul>
+							<h4>What is LINZESS?</h4>
+							<p>LINZESS<sup>&trade;</sup> (linaclotide) is a prescription medication used in adults to treat irritable bowel syndrome with constipation (IBS-C) and chronic idiopathic constipation (CIC). "Idiopathic" means the cause of the constipation is unknown. <strong>It is not known if LINZESS is safe and effective in children.</strong></p>
+							<h4>Before you take LINZESS, tell your doctor:</h4>
+							<ul>
+								<li>If you have any other medical conditions.</li>
+								<li>If you are pregnant or plan to become pregnant. It is not known if LINZESS will harm your unborn baby.</li>
+								<li>If you are breastfeeding or plan to breastfeed. It is not known if LINZESS passes into your breast milk.</li>
+								<li><strong>About all the medicines you take,</strong> including prescription and non-prescription medicines, vitamins, and herbal supplements.</li>
+							</ul>
+							<h4 class="underline">Side Effects</h4>
+							<p><strong>LINZESS can cause serious side effects, including diarrhea, the most common side effect, which can sometimes be severe.</strong> Diarrhea often begins within the first 2 weeks of LINZESS treatment. <strong>Stop taking LINZESS and call your doctor right away if you get severe diarrhea during treatment with LINZESS.</strong></p>
+							<p>Other common side effects of LINZESS include gas, stomach-area (abdominal) pain, swelling, or a feeling of fullness or pressure in your abdomen (distension). Tell your doctor if you have any side effect that bothers you or that does not go away. These are not all the possible side effects of LINZESS. For more information, ask your doctor or pharmacist.</p>
+							<p><strong>In addition, call your doctor or go to the nearest hospital emergency room right away if you develop unusual or severe stomach-area (abdominal) pain, especially if you also have bright red, bloody stools or black stools that look like tar.</strong></p>
+							<h4 class="underline">How to Take LINZESS</h4>
+							<p>Take LINZESS exactly as your doctor tells you to take it. Take LINZESS one time each day on an empty stomach, at least 30 minutes before your first meal of the day. Swallow LINZESS capsules whole. Do not break or chew the capsules.</p>
+							<h4 class="underline">Storing LINZESS</h4>
+							<p>Store LINZESS at room temperature (68°F to 77°F), and keep LINZESS in the bottle it comes in. Keep the LINZESS bottle tightly closed, in a dry place, and keep the desiccant packet (the drying agent) in the bottle. <strong>Keep LINZESS out of the reach of children.</strong></p>
+							<p>Please also see <a href="/click?url=http://www.frx.com/pi/linzess_pi.pdf" onclick="return sl(this,'nw','isi_1');"><strong>Medication Guide</strong></a> within <a href="/click?url=http://www.frx.com/pi/linzess_pi.pdf" onclick="return sl(this,'nw','isi_2');"><strong>Full Prescribing Information</strong></a>.</p>
+						</div>
+				<script type="text/javascript">
+						$(function() {
+							/* Object to make a div with scrolling text scroll automatically */
+							webmd.m.autoscroller = {
+								init: function (settings) {
+									/* save the settings */
+									this.settings = settings;
+									
+									/* look up our node */
+									this.scroller = document.getElementById(this.settings.id);
+									
+									/* reset the scroller position on load if true */
+									this.settings.reset_position_on_load ? this.reset_scroller() : null;
+									
+									/* start the scroller if the auto setting is true */
+									this.settings.scroll_on_load ? this.start_autoscroll() : null;
+								},
+								/* start the autoscroll */
+								start_autoscroll: function() {
+									/* shortcut to the object settings */
+									var s = this.settings;
+									
+									/* stop the scroller to reset vars */
+									this.stop_autoscroll();
+									
+									/* delay the start to smooth the animation */
+									var self = this;
+									this.settings.autoscroll_delayed_exec = setTimeout(function() {
+										self.create_autoscroll_interval();															
+									}, s.delay);
+								},
+								/* create the autoscroll interval */
+								create_autoscroll_interval: function() {
+									/* the object is running */
+									this.settings.autoscroll_is_scrolling = true;
+									
+									/* shortcut to the object settings */
+									var s = this.settings;
+									
+									/* build and execute the interval code */
+									var self = this;
+									this.settings.autoscroll_interval = setInterval(function() {
+										self.autoscroll();									 
+									}, s.interval);
+								},
+								/* this function runs at a specified interval to actually do the scrolling */
+								autoscroll: function() {
+									var scroller = this.scroller;
+									if (typeof(scroller) == 'object') {
+										/* if we're at the end and the config says to do so, reset the scroller */
+										if (scroller.scrollTop >= (scroller.scrollHeight-scroller.clientHeight)) {
+											this.settings.reset_position_on_end ? this.reset_scroller() : null;
+											this.stop_autoscroll();
+										}
+										/* stop the autoscroller if scrollTop has changed since the last interval, indicating user has moved the scrollbar */
+										if (this.settings.autoscroll_last_scrolltop != scroller.scrollTop) {
+											this.stop_autoscroll();
+										}
+										/* do the scroll if is_scrolling is set to true */
+										if ((scroller.scrollTop < scroller.scrollHeight) && this.settings.autoscroll_is_scrolling) {
+											scroller.scrollTop += 1;
+											this.settings.autoscroll_last_scrolltop = scroller.scrollTop;
+										}
+									}
+								},
+								/* stop the scroller */
+								stop_autoscroll: function() {
+									var scroller = this.scroller;
+									clearInterval(this.settings.autoscroll_interval);
+									clearTimeout(this.settings.autoscroll_delayed_exec);
+									this.settings.autoscroll_last_scrolltop = scroller.scrollTop;
+									this.settings.autoscroll_is_scrolling = false;
+								},
+								/* make sure the box starts at the top on page load */
+								reset_scroller: function() {
+									var scroller = this.scroller;
+									if (typeof(scroller) == 'object') {
+										scroller.scrollTop = 0;
+									}
+								}
+							};
+						
+							webmd.m.autoscroller.init({
+								delay: 2000,
+								id: 'isi-scroll-rr',
+								interval: 100,
+								reset_position_on_end: true,
+								scroll_on_load: true
+							});
+						});
+					</script>
 
 <!-- END Put any right column modules here -->												
 					</div>
