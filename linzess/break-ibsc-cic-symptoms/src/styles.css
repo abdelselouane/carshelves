@@ -39,7 +39,7 @@
 }
 
 #linzess_tap.toc .slide .btn {
-	background-image: url('./img/promo-tabs-sprite.png');
+	background-image: url('img/promo-tabs-sprite.png');
 	display: block;
 	float: left;
 	cursor: pointer;
@@ -96,7 +96,7 @@
 }
 
 #linzess_tap.toc .sub-promo {
-	background: url('./img/sub-promo-bg.gif') 0 0 repeat-x;
+	background: url('img/sub-promo-bg.gif') 0 0 repeat-x;
 	padding: 8px 7px;
 }
 
@@ -109,13 +109,13 @@
 }
 
 #linzess_tap.toc .sub-promo .left {
-	background-image: url('./img/sub-promo-left-bg.gif');
+	background-image: url('img/sub-promo-left-bg.gif');
 	float: left;
 	margin-right: 2px;
 }
 
 #linzess_tap.toc .sub-promo .right {
-	background-image: url('./img/sub-promo-right-bg.gif');
+	background-image: url('img/sub-promo-right-bg.gif');
 	float: left;
 }
 
@@ -239,7 +239,7 @@
 /* Article CSS */
 
 #linzess_tap .linz-btn {
-	background: url('./img/button-bg.png') 50% 50% no-repeat;
+	background: url('img/button-bg.png') 50% 50% no-repeat;
 	color: #fff;
 	display: block;
 	font-size: 90%;
@@ -286,7 +286,7 @@
 }
 
 #linzess_tap .article .header-bg {
-	background: url('./img/header-bg.png') 50% 50% no-repeat;
+	background: url('img/header-bg.png') 50% 50% no-repeat;
 	display: block;
 	float: right;
 	height: 71px;
@@ -301,7 +301,7 @@
 
 
 #linzess_tap .article .figure_2-1 {
-	background: url('./img/figure_2-1.png') 50% 50% no-repeat;
+	background: url('img/figure_2-1.png') 50% 50% no-repeat;
 	height: 216px;
 	margin-bottom: 20px;
 	width: 493px;
@@ -323,7 +323,7 @@
 }
 
 #linzess_tap .article .print-promo {
-	background: url('./img/print-promo-bg.gif') 50% 50% no-repeat;
+	background: url('img/print-promo-bg.gif') 50% 50% no-repeat;
 	height: 170px;
 	margin: 35px 0;
 	padding: 1px 0;
