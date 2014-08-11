@@ -374,7 +374,7 @@
 }
 
 #isi ul li {
-	background: url('http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/miscellaneous/3x3_black_bullet.gif') 0 6px no-repeat;
+	background: url('http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_./img/miscellaneous/3x3_black_bullet.gif') 0 6px no-repeat;
 	font-size: 90%;
 	margin-bottom: 5px;
 	padding-left: 8px;
@@ -415,7 +415,7 @@
 	padding: 0;
 }
 #isi-scroll-rr ul li {/*3x3_black_bullet.gif*/
-	background: url('http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/miscellaneous/3x3_black_bullet.gif') 0 6px no-repeat;
+	background: url('http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_./img/miscellaneous/3x3_black_bullet.gif') 0 6px no-repeat;
 	font-size: 90%;
 	margin-bottom: 5px;
 	padding-left: 8px;
@@ -441,7 +441,7 @@
 
 }
 #standardSubnavSP_rdr #standardSubnav_fmt li {/*3x3_blue_069_bullet*/
-    background-image: url('http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/miscellaneous/3x3_blue_069_bullet.gif');
+    background-image: url('http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_./img/miscellaneous/3x3_blue_069_bullet.gif');
 	font-size: 90%;
 }
 #standardSubnavSP_rdr #standardSubnav_fmt li.standardSubnav_subhead_fmt {
