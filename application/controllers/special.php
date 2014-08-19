@@ -26,7 +26,7 @@ class Special extends CI_Controller
             $data = $this->template->getPage($info);
         
             $this->load->view('template/main', $data);
-		//}
+		//}   /**/
 	}
     
     
