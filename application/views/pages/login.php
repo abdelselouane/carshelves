@@ -19,7 +19,10 @@
                          <form id="loginForm" action="<?= base_url().'login/signin';?>" method="POST" class="form-vertical" data-toggle="validator">
                                 <div class="form-group" style="width:500px;" >
                                     <? echo '<h1>Github plus FTPloy Test</h1>';?>
+<<<<<<< HEAD
                                     
+=======
+>>>>>>> 45e6154aef5145e825b0aed7e5c3e5746f59ebb7
                                     <? if(!empty($error) && $error === TRUE){?>
                                         <div class="alert alert-danger" role="alert">
                                             <button type="button" class="close" data-dismiss="alert" >x</button>
