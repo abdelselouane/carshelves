@@ -17,7 +17,7 @@
                         <h2><strong>Sign In</strong></h2>
                         <!---->
                          <form id="loginForm" action="<?= base_url().'login/signin';?>" method="POST" class="form-vertical" data-toggle="validator">
-                                <div class="form-group" style="width:500px;" >
+                                <div class="form-group" style="width:500px;" >  
                                     <? if(!empty($error) && $error === TRUE){?>
                                         <div class="alert alert-danger" role="alert">
                                             <button type="button" class="close" data-dismiss="alert" >x</button>
