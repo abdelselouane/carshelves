@@ -8,7 +8,7 @@
 				</div>
 				<div class="main_wrapper">
 					<h1><strong>Welcome</strong>  to our Social Media Page</h1>
-					<h1><strong>Welcome</strong>  to our Social Media Page Test/h1>
+					<h1><strong>Welcome</strong>  to our Social Media Page Test</h1>
 					<div class="blog">
 						<div class="blog_single_post">
 							<h4>Here comes the Social Media title</h4>
