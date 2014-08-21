@@ -1,4 +1,6 @@
-**/build/**/*
-**/dist/**/*
-**/node_modules/**/*
-**/webmd-ingest.zip
+.bundle
+.DS_Store
+log/*.log
+tmp/
+.project
+.htaccess
