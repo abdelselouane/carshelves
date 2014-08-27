@@ -28,10 +28,10 @@ class Add extends CI_Controller
             $info = array();
             $info['title']   = 'Add Vehicle';
             $info['page']    = 'add';
-            $data = $this->template->getPage($info);
-            $this->load->view('template/main', $data);
+            //$data = $this->template->getPage($info);
+           // $this->load->view('template/main', $info);
                 
-
+			$this->template->load('template/main', 'pages/add', $info);
             
         
             
