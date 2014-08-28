@@ -85,7 +85,7 @@
           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="<?=base_url();?>images/slide-show/10.jpg" alt="Generic placeholder image">
+          	<img class="featurette-image img-responsive outer-shadow" src="<?=base_url();?>images/slide-show/10.jpg" alt="Generic placeholder image">
         </div>
       </div>
 
@@ -93,7 +93,7 @@
 
       <div class="row featurette">
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="<?=base_url();?>images/slide-show/2.jpg" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive outer-shadow" src="<?=base_url();?>images/slide-show/2.jpg" alt="Generic placeholder image">
         </div>
         <div class="col-md-7"><!-- Add class="featurette-heading" to h2 for bigger text-->
           <h2 >Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
@@ -109,7 +109,7 @@
           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="<?=base_url();?>images/slide-show/11.jpg" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive outer-shadow" src="<?=base_url();?>images/slide-show/11.jpg" alt="Generic placeholder image">
         </div>
       </div>
 
