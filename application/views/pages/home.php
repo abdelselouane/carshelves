@@ -81,8 +81,8 @@
 
       <div class="row featurette">
         <div class="col-md-7"><!-- Add class="featurette-heading" to h2 for bigger text-->
-          <h2 >First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 >Why Selling your used car online. <span class="text-muted">It's just the smart move.</span></h2>
+          <p class="lead">To overcome all obstacles selling a used car and to find the best deal for your vehicle by receiving offers from people who are looking to buy a used car, not businesses or dealers with their cheap offers, the online advertising through proper channel such as <strong><span class="blue">Car</span><span class="gold">shelves</span><span class="blue">.com</span></strong> can be fast, efficient and extremely beneficial. </p>
         </div>
         <div class="col-md-5">
           	<img class="featurette-image img-responsive outer-shadow" src="<?=base_url();?>images/slide-show/10.jpg" alt="Generic placeholder image">
@@ -96,8 +96,8 @@
           <img class="featurette-image img-responsive outer-shadow" src="<?=base_url();?>images/slide-show/2.jpg" alt="Generic placeholder image">
         </div>
         <div class="col-md-7"><!-- Add class="featurette-heading" to h2 for bigger text-->
-          <h2 >Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 >It's that good. <span class="text-muted">Describe your car.</span></h2>
+          <p class="lead"><strong><span class="blue">Car</span><span class="gold">shelves</span><span class="blue">.com</span></strong> can easly mention major details about your vehicle, like photos, car condition, and maintenance conducted in the past etc. There is huge space for online advertisers to place the photo of the car, driving history, mileage, repairing and maintenance details, the expected price, contact information, and more ... .</p>
         </div>
       </div>
 
@@ -105,8 +105,8 @@
 
       <div class="row featurette">
         <div class="col-md-7"><!-- Add class="featurette-heading" to h2 for bigger text-->
-          <h2 >And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 >Expected Time to Complete the Deal <span class="text-muted">Checkmate.</span></h2>
+          <p class="lead">The buyers are online throughout the day. It is quite possible that you start receiving offers within a few hours of placing your ad and you can expect a shorter turnaround time. </p>
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-responsive outer-shadow" src="<?=base_url();?>images/slide-show/11.jpg" alt="Generic placeholder image">
