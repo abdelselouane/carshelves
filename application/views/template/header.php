@@ -4,7 +4,7 @@
         <div class="top_info">
             <div class="logo">
                 <!--a href="#">Car<span>Shelves</span></a!-->
-                <img src="<?=base_url().'images/';?>CarShelves_Logo4.png" width="" height="" >
+                <img src="<?=base_url().'images/';?>logo2.png" width="" height="" >
             </div>
             <div class="header_contacts">
                 <div class="phone">+1 (800) 455-55-95</div>
