@@ -1,4 +1,4 @@
-<!--div id="content"-->
+
 			<div class="content">
 				<div class="breadcrumbs">
 					<a href="#">Home</a>
@@ -7,20 +7,20 @@
 				</div>
 				<div class="main_wrapper">
 					<div class="steps">
-						<span>1. new offer</span>
-						<span>2. preview</span>
-						<span>3. submit</span>
+						<span>1. Vehicle Information</span>
+						<span>2. Preview</span>
+						<span>3. Submit</span>
 					</div>
 					<h1><strong>Sell</strong> your vehicle</h1>
 					<div class="message">
-						<h4>Sell your car on <strong><span class="gold">CarShelves</span></strong> and benefit from more than 1 million potential buyers every month!</h4>
+						<h4>Sell your car on <strong><span class="blue">Car</span><span class="gold">Shelves</span><span class="blue">.com</span></strong> and benefit from more than 1 million potential buyers every month!</h4>
 						<p>Required fields are marked with *<br/>Please post offers only on the car (parts are a special category).<br/>If you are a dealer, please visit the dealers section<br/>If you have difficulties in posting an offer on the website, please call 0742 016 570</p>
 					</div>
 					<div class="sell_box sell_box_1">
                         
 						<h2><strong>Vehicle</strong> data</h2>
                         
-                        <form class="" id="ad_vehicle_form" action="<?= base_url().'add/addVehicle';?>" method="POST">
+                        <form id="ad_vehicle_form1" action="<?= base_url().'add/addVehicle';?>" method="POST" enctype="multipart/form-data">
 
                             
                         <div class="row">
@@ -40,7 +40,7 @@
                             </div>
                             <div class="col-md-4 form-group">
                                 <label><span>* </span><strong>Model: </strong></label>
-                                <select name="model" class="form-control" required>
+                                <select id="model" name="model" class="form-control" required>
                                     <option value="">Select</option>
                                     <option value="R8">R8</option>
                                     <option value="S500">S500</option>
@@ -54,7 +54,7 @@
                             </div>
                             <div class="col-md-4 form-group">
                                 <label><span>* </span><strong>Year:</strong></label>
-                                <select name="year" class="form-control" required> 
+                                <select id="year" name="year" class="form-control" required> 
                                     <option value="">Select</option>
                                     <option value="2013">2013</option>
                                     <option value="2012">2012</option>
@@ -71,7 +71,7 @@
                           <div class="row">
                             <div class="col-md-4 form-group">
                                 <label><span>* </span><strong>Body Type:</strong></label>
-                                <select name="body_type" class="form-control" required>
+                                <select id="body_type" name="body_type" class="form-control" required>
                                     <option value="">Select</option>
                                     <option value="Sedan">Sedan</option>
                                     <option value="Coupe">Coupe</option>
@@ -82,7 +82,7 @@
                             </div>
                             <div class="col-md-4 form-group">
                                 <label><span>* </span><strong>Fuel Type:</strong></label>
-                                <select name="fuel_type" class="form-control" required>
+                                <select id="fuel_type" name="fuel_type" class="form-control" required>
                                     <option value="">Select</option>
                                     <option value="Regular">Regular</option>
                                     <option value="Plus">Plus</option>
@@ -92,17 +92,17 @@
                             </div>  
                             <div class="col-md-4 form-group">
                                 <label><span>* </span><strong>Transmission:</strong></label>
-                                <select name="transmission" class="form-control" required>
+                                <select id="transmission" name="transmission" class="form-control" required>
                                     <option value="">Select</option>
                                     <option value="Auto">Auto</option>
-                                    <option value="Mechanic">Mechanic</option>
-                                </select>  
+                                    <option value="Manual">Manual</option>
+                                </select>
                             </div>  
                           </div>
                           <div class="row">
                               <div class="col-md-4 form-group">
                                 <label><span>* </span><strong>Doors:</strong></label>
-                                <select name="doors" class="form-control" required>
+                                <select id="doors" name="doors" class="form-control" required>
                                     <option value="">Select</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -112,7 +112,7 @@
                               </div>
                               <div class="col-md-4 form-group">
                                 <label><span>* </span><strong>Cylinders:</strong></label>
-                                <select name="cylinders" class="form-control" required>
+                                <select id="cylinders" name="cylinders" class="form-control" required>
                                     <option value="">Select</option>
                                     <option value="4">4</option>
                                     <option value="6">6</option>
@@ -123,7 +123,7 @@
                               </div>
                               <div class="col-md-4 form-group">
                                 <label><span>* </span><strong>Color:</strong></label>
-                                <select name="color" class="form-control" required>
+                                <select id="color" name="color" class="form-control" required>
                                     <option value="">Select</option>
                                     <option value="Red">Red</option>
                                     <option value="Green">Green</option>
@@ -144,11 +144,11 @@
                                 <label><span>* </span><strong>VIN / Vehicule Identification Number:</strong></label>
                                 <input type="text" id="vin" name="vin" class="form-control" value="" required/>
                               </div>
-                              <div class="col-md-8 form-group">
+                              <!--div class="col-md-8 form-group">
                                 <button type="submit" class="btn btn-primary">Validate</button>
-                              </div>
+                              </div-->
                           </div>
-                        </form>
+                        
                         
 						<div class="clear"></div>
 					</div>
@@ -161,7 +161,7 @@
                             <div class="chb_group">
                                 <span class="custom_chb_wrapper">
                                     <span class="custom_chb">
-                                        <input type="checkbox" name="abs" checked="checked"/>
+                                        <input type="checkbox"  name="abs" checked="checked"/>
                                     </span>
                                     <label>ABS</label>
                                 </span>
@@ -173,15 +173,15 @@
                                 </span>
                                 <span class="custom_chb_wrapper">
                                     <span class="custom_chb">
-                                        <input type="checkbox" name="differentisl_lock" checked="checked"/>
+                                        <input type="checkbox" name="differential_lock" checked="checked"/>
                                     </span>
                                     <label>Differential lock</label>
                                 </span>
                                 <span class="custom_chb_wrapper">
                                     <span class="custom_chb">
-                                        <input type="checkbox" name="velor_interior" checked="checked"/>
+                                        <input type="checkbox" name="leather_interior" checked="checked"/>
                                     </span>
-                                    <label>Velor interior</label>
+                                    <label>Leather interior</label>
                                 </span>
                                 <span class="custom_chb_wrapper">
                                     <span class="custom_chb">
@@ -191,7 +191,7 @@
                                 </span>
                                 <span class="custom_chb_wrapper">
                                     <span class="custom_chb">
-                                        <input type="checkbox" name="adjutable_suspension" checked="checked"/>
+                                        <input type="checkbox" name="adjustable_suspension" checked="checked"/>
                                     </span>
                                     <label>Adjust suspension</label>
                                 </span>
@@ -395,15 +395,21 @@
                             </div>
                         </div>
                         </div>
+                        <div class="row">
+                        	<div class="col-md-8 form-group">
+                                <label><strong>Additional Equipment: </strong></label>
+							     <textarea cols="10" rows="6" name="additional_equipment" class="form-control"></textarea>
+                            </div>
+                        </div>
 						<div class="clear"></div>
 					</div>
 					<div class="sell_box sell_box_3">
 						<h2><strong>Vehicle</strong> price <span class="gold">&amp;</span> condition</h2>
                         
-                        <div class="rom">
+                        <div class="row">
                             <div class="col-md-4 form-group">
                                 <label><span>* </span><strong>Technical condition: </strong></label>
-                                <select name="condition" class="form-control">
+                                <select name="condition" class="form-control" required>
                                     <option value="">Select</option>
                                     <option value="low">Low</option>
                                     <option value="good">Good</option>
@@ -426,7 +432,7 @@
                             <div class="single_chb_wrapper">
                                 <span class="custom_chb_wrapper">
                                     <span class="custom_chb">
-                                        <input type="checkbox" name="negotiable" checked/>
+                                        <input type="checkbox" name="negotiable" checked="checked" required/>
                                     </span>
                                     <label><span class="gold">Price Negotiable</span></label>
                                 </span>
@@ -441,47 +447,40 @@
 						<h2><strong>Vehicle</strong> photos</h2>
 						
                         <div class="row">
-                            <div class="col-md-4 foto_wrapper">
-                                <a href="#">
-                                    <img src="<?= base_url().'images/'?>upload.png" alt="" class="upload"/>
-                                    upload photo
-                                    <input type="file" name="image1" >
-                                </a>
+                            <div class="col-md-4 photo-wrapper">
+                               
+                                    <input id="file-1" type="file" multiple="true">
+                                
                             </div>
-                            <div class="col-md-4 foto_wrapper">
-                                <a href="#">
-                                    <img src="<?= base_url().'images/'?>upload.png" alt="" class="upload"/>
-                                    upload photo
-                                </a>
+                            <div class="col-md-4 photo-wrapper">
+                                
+                                    <input id="file-2" type="file" multiple="true">
+                               
                             </div>
-                            <div class="col-md-4 foto_wrapper">
-                                <a href="#">
-                                    <img src="<?= base_url().'images/'?>upload.png" alt="" class="upload"/>
-                                    upload photo
-                                </a>
+                            <div class="col-md-4 photo-wrapper">
+                               
+                                    <input id="file-3" type="file" multiple="true">
+                                
                             </div>
                         </div>
+                        <div class="divider-photo"></div>
                         <div class="row">
-                            <div class="col-md-4 foto_wrapper">
-                                <a href="#">
-                                    <img src="<?= base_url().'images/'?>upload.png" alt="" class="upload"/>
-                                    upload photo
-                                </a>
+                            <div class="col-md-4 photo-wrapper">
+                               
+                                    <input id="file-4" type="file" multiple="true">
+                                
                             </div>
-                            <div class="col-md-4 foto_wrapper">
-                                <a href="#">
-                                    <img src="<?= base_url().'images/'?>upload.png" alt="" class="upload"/>
-                                    upload photo
-                                </a>
+                            <div class="col-md-4 photo-wrapper">
+                                
+                                    <input id="file-5" type="file" multiple="true">
+                               
                             </div>
-                            <div class="col-md-4 foto_wrapper last">
-                                <a href="#">
-                                    <img src="<?= base_url().'images/'?>upload.png" alt="" class="upload"/>
-                                    upload photo
-                                </a>
+                            <div class="col-md-4 photo-wrapper">
+                               
+                                    <input id="file-6" type="file" multiple="true">
+                                
                             </div>
                         </div>
-                        
 						
 						<div class="clear"></div>
 					</div>
@@ -496,7 +495,7 @@
                             </div>
                             <div class="input_wrapper form-group col-md-4">
                                 <label><strong>Middle: </strong></label>
-                                <input type="text" name="middle" class="form-control" value="" required/>
+                                <input type="text" name="middle" class="form-control" value="" />
                             </div>
                             <div class="input_wrapper form-group col-md-4">
                                 <label><span>* </span><strong>Last Name: </strong></label>
@@ -558,11 +557,9 @@
 							</span>
 							<label><span class="gold">I agree to the Terms and Conditions</span></label>
 						</span>
-						<!--input type="submit" value="Submit" class="sell_submit"/-->
+						<button type="submit" class="btn btn-primary" style="float:right;" />Continnue</button>
 						<div class="clear"></div>
 					</div>
-                    <!--/form-->
+                    </form>
 				</div>
 			</div>
-		<!--/div==>
-        <!-- container -->
