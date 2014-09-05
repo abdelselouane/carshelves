@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="<?= base_url().'css/';?>bootstrap.min.css"/>
     <link rel="stylesheet" href="<?= base_url().'css/';?>bootstrap-theme.min.css" >
     <link rel="stylesheet" href="<?= base_url().'css/';?>bootstrap-responsive.css"/>
-    <link rel="stylesheet" href="<?= base_url().'css/';?>bootstrapValidator.css"/>
+    <!--link rel="stylesheet" href="<?= base_url().'css/';?>bootstrapValidator.css"/-->
     <link rel="stylesheet" href="<?= base_url().'css/';?>bootstrapValidator.min.css"/>
     <link rel="stylesheet" href="<?= base_url().'css/';?>navbar.css"/>
     <link rel="stylesheet" href="<?= base_url().'css/'?>carousel.css" >
@@ -106,9 +106,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="<?= base_url().'js/'?>jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="<?= base_url().'js/'?>bootstrap.min.js"></script>
-     <script type="text/javascript" src="<?= base_url().'js/'?>bootstrapValidator.min.js"></script>
+    <script type="text/javascript" src="<?= base_url().'js/'?>bootstrapValidator.min.js"></script>
     <? if(!empty($page) && ( $page === 'register' || $page === 'login' || $page === 'forgot_password' || $page === 'reset_password' || $page === 'activation_code') ){?>
    
     <script type="text/javascript" src="<?= base_url().'js/'?>register.js"></script>
@@ -118,7 +118,7 @@
     <script type="text/javascript" src="<?= base_url().'js/'?>vehicle_information.js"></script>
     <script type="text/javascript" src="<?= base_url().'js/'?>js.js"></script>
     <script type="text/javascript" src="<?= base_url().'js/'?>jquery.checkbox.js"></script>
-    <!--script type="text/javascript" src="<?= base_url().'js/'?>fileinput.min.js" ></script-->
+    <script type="text/javascript" src="<?= base_url().'js/'?>fileinput.min.js" ></script>
     <script type="text/javascript" src="<?= base_url().'js/'?>fileinput.js" ></script>
     
     <!--script type="text/javascript" src="<?= base_url().'js/'?>collapse.js"></script-->

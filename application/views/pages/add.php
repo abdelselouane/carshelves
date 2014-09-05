@@ -16,14 +16,13 @@
 						<h4>Sell your car on <strong><span class="blue">Car</span><span class="gold">Shelves</span><span class="blue">.com</span></strong> and benefit from more than 1 million potential buyers every month!</h4>
 						<p>Required fields are marked with *<br/>Please post offers only on the car (parts are a special category).<br/>If you are a dealer, please visit the dealers section<br/>If you have difficulties in posting an offer on the website, please call 0742 016 570</p>
 					</div>
+					<form id="ad_vehicle_form" action="<?= base_url().'add/addVehicle';?>" enctype="multipart/form-data" method="post">
 					<div class="sell_box sell_box_1">
                         
 						<h2><strong>Vehicle</strong> data</h2>
                         
-                        <form id="ad_vehicle_form1" action="<?= base_url().'add/addVehicle';?>" method="POST" enctype="multipart/form-data">
-
-                            
-                        <div class="row">
+                        
+							<div class="row">
                             <div class="col-md-4 form-group">
                                 <label for="manufacturer" ><span>* </span><strong>Manufacturer:</strong></label>
                                 <select id="manufacturer" name="manufacturer" class="form-control" required>
@@ -448,18 +447,18 @@
 						
                         <div class="row">
                             <div class="col-md-4 photo-wrapper">
-                               
-                                    <input id="file-1" type="file" multiple="true">
+                               		<input type="hidden" value="file-1">
+                                    <input id="file_1" name="file_1" type="file" multiple="true" class="form-control">
                                 
                             </div>
                             <div class="col-md-4 photo-wrapper">
                                 
-                                    <input id="file-2" type="file" multiple="true">
+                                    <input id="file_2" name="file_2" type="file" multiple="true">
                                
                             </div>
                             <div class="col-md-4 photo-wrapper">
                                
-                                    <input id="file-3" type="file" multiple="true">
+                                    <input id="file_3" name="file_3" type="file" multiple="true">
                                 
                             </div>
                         </div>
@@ -467,18 +466,18 @@
                         <div class="row">
                             <div class="col-md-4 photo-wrapper">
                                
-                                    <input id="file-4" type="file" multiple="true">
+                                    <input id="file_4" name="file_4" type="file" multiple="true">
                                 
                             </div>
                             <div class="col-md-4 photo-wrapper">
                                 
-                                    <input id="file-5" type="file" multiple="true">
+                                    <input id="file_5" name="file_5" type="file" multiple="true">
                                
                             </div>
                             <div class="col-md-4 photo-wrapper">
                                
-                                    <input id="file-6" type="file" multiple="true">
-                                
+                                    <input id="file_6" name="file_6" type="file" multiple="true">
+                               
                             </div>
                         </div>
 						
@@ -520,7 +519,7 @@
                             <div class="select_wrapper col-md-4 form-group">
                                 <label><span>* </span><strong>State: </strong></label>
                                 <select name="state" class="form-control" required>
-                                    <option value="0">Select</option>
+                                    <option value="">Select</option>
                                     <option value="1">atlanta</option>
                                     <option value="2">alabama</option>
                                     <option value="3">tenesse</option>
@@ -533,7 +532,7 @@
                             <div class="select_wrapper col-md-4 form-group">
                                 <label><span>* </span><strong>City: </strong></label>
                                 <select name="city" class="form-control" required>
-                                    <option value="0">Select</option>
+                                    <option value="">Select</option>
                                     <option value="1">atlanta</option>
                                     <option value="2">alabama</option>
                                     <option value="3">tenesse</option>
@@ -550,16 +549,17 @@
 						</div>
 						<div class="clear"></div>
 					</div>
-					<div class="sell_submit_wrapper">
+					<div class="sell_submit_wrapper form-group">
 						<span class="custom_chb_wrapper fL">
 							<span class="custom_chb">
-								<input type="checkbox" name="terms" required/>
+								<input type="checkbox" id="terms" name="terms" class="form-control" required/>
 							</span>
 							<label><span class="gold">I agree to the Terms and Conditions</span></label>
 						</span>
 						<button type="submit" class="btn btn-primary" style="float:right;" />Continnue</button>
 						<div class="clear"></div>
 					</div>
-                    </form>
+                 </form>
+                        
 				</div>
 			</div>

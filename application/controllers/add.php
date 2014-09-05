@@ -47,7 +47,25 @@ class Add extends CI_Controller
          $post= $this->input->post();
         if( !empty($post) ){
            
-            echo '<pre>'; print_r($post); echo '</pre>'; //exit;
+            echo '<pre>'; print_r($post); echo '</pre>'; 
+            echo '<pre>'; print_r($_FILES); echo '</pre>'; 
+			if(isset($_FILES)){
+				
+				
+				
+				for($i = 1; $i <= count($_FILES['file_'.$i]); $i++ ){
+					
+					$config['upload_path']		= '../carshelves/assets/';
+					if( $_FILES['file_'.$i]['error'] == 0 ){
+						
+						
+						move_uploaded_file($_FILES['file_'.$i]['tmp_name'],$config['upload_path'].'000.jpg');
+						
+					}
+				}
+				
+			}
+            exit;
            
             $vehicle_data['manufacturer']   = isset($post['manufacturer']) ? $post['manufacturer'] : '';
             $vehicle_data['year']           = isset($post['year']) ? $post['year'] : '';

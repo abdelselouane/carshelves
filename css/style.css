@@ -2744,16 +2744,16 @@ ul.personal_list li .grey_area span{
 ================================================================================
 */
 .custom_chb{
-	width:17px;
-	height:17px;
+	width:20px;
+	height:20px;
 	float: left;
 	overflow:hidden;
-	background:url(../images/checkbox.png) no-repeat 0 0;
+	/*background:url(../images/checkbox.png) no-repeat 0 0;*/
 	cursor:pointer;
 	margin: 2px 0 0 0;
 }
 .custom_chb.active{
-	background-position:0 -17px;
+	/*background-position:0 -17px;*/
 }
 .custom_chb_wrapper{
 	display: block;
@@ -2764,11 +2764,13 @@ ul.personal_list li .grey_area span{
 	font-size: 13px;
 	float: left;
 	color: #798FA1;
-	line-height: 20px;
+	line-height: 30px;
 	padding: 0 0 0 8px;
 }
 .custom_chb input{
-	display:none;
+	display: block;
+	height: 18px;
+	width: 16px;
 }
 /*
 ================================================================================
