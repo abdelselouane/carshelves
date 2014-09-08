@@ -1,15 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-/**
- * Users
- *
- * This model represents user authentication data. It operates the following tables:
- * - user account data,
- * - user profiles
- *
- * @package	Tank_auth
- * @author	Ilya Konyukhov (http://konyukhov.com/soft/)
- */
+
 class Users extends CI_Model
 {
 	private $table_name			= 'users';			// user accounts
@@ -23,7 +14,22 @@ class Users extends CI_Model
 		$this->table_name			= $ci->config->item('db_table_prefix', 'tank_auth').$this->table_name;
 		$this->profile_table_name	= $ci->config->item('db_table_prefix', 'tank_auth').$this->profile_table_name;
 	}
-
+	/**
+	 * verify token by user_id
+	 */
+	function verify_token($user_id, $token){
+		if( isset($user_id) && isset($token) ){
+			
+			$this->db->where('id', $user_id);
+			$this->db->where('token', $token);
+			
+			$query = $this->db->get($this->table_name);
+			if ($query->num_rows() == 1) return TRUE;
+			return FALSE;
+		}else{
+			return FALSE;
+		}
+	}
 	/**
 	 * Get user record by Id
 	 *

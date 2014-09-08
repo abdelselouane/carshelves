@@ -137,7 +137,12 @@ Letters, numbers, underscore only<br/>';
                 }
                 
                 $post['password'] = encryptIt( $post['password'] );
-
+				
+				/******** Create Token *********/
+				 $post['token']	=  rand_string(32);
+                // $post['token'] =  encryptIt($tokenString); 
+				/********				*******/
+				
                 $user_id = $this->users->create_user($post, FALSE);
                 
                 $data_user =  $this->users->get_user_by_id($user_id['user_id'],FALSE);
@@ -158,7 +163,7 @@ Letters, numbers, underscore only<br/>';
                 
                   // echo '<pre>'; print_r($userInfo); echo '</pre>';
                   //  exit;
-                   /* 
+                    
                     $this->email->from('office@carshelves.com', 'Carshelves.com');
                     $this->email->to($data_user->email); 
                     //$this->email->cc('another@another-example.com'); 
@@ -175,7 +180,7 @@ Letters, numbers, underscore only<br/>';
                     //  }catch(Exception $e){
                       //  echo $e->getMessage();
                     //  }
-                    */
+                    
                     $error['success'] = TRUE;
                     $error['msg']   = '<strong>Activation Link:</strong><br/> was sent to your email address.';
                    // echo '<pre>'; print_r($error); echo '<pre/>'; exit;

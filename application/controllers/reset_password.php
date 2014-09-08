@@ -59,7 +59,7 @@ class Reset_password extends CI_Controller
                     $new_pass = encryptIt($post['password']);
                     $user_id = $post['user_id'];
                     $this->users->reset_password($user_id, $new_pass);
-                    /* $this->email->from('office@carshelves.com', 'Carshelves.com');
+                    $this->email->from('office@carshelves.com', 'Carshelves.com');
                     $this->email->to($post['email']); 
                     //$this->email->cc('another@another-example.com'); 
                     //$this->email->bcc('them@their-example.com'); 
@@ -69,8 +69,7 @@ class Reset_password extends CI_Controller
 
                     $this->email->send();
 
-                    //echo $this->email->print_debugger();*/
-                    
+                    //echo $this->email->print_debugger();                    
                     $error['success'] = TRUE;
                     $error['msg'] = 'The <strong>Password</strong> has been changed successfully.<br/> <a href="'.base_url().'login">Login Now</a>';
                 

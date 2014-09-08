@@ -66,7 +66,7 @@ class Forgot_password extends CI_Controller
                     
                   //  exit;
                 
-                   /* $this->email->from('office@carshelves.com', 'Carshelves.com');
+                    $this->email->from('office@carshelves.com', 'Carshelves.com');
                     $this->email->to($post['email']); 
                     //$this->email->cc('another@another-example.com'); 
                     //$this->email->bcc('them@their-example.com'); 
@@ -76,7 +76,7 @@ class Forgot_password extends CI_Controller
 
                     $this->email->send();
 
-                    //echo $this->email->print_debugger();*/
+                    //echo $this->email->print_debugger();
                 
                     $error['success'] = TRUE;
                     $error['msg'] = 'An email was sent to <strong>'.$post['email'].'</strong> with an <strong>Activation Link</strong>';

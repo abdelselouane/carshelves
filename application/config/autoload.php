@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('tank_auth/users');
+$autoload['model'] = array('users');
 
 
 /* End of file autoload.php */

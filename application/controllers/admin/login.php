@@ -6,8 +6,8 @@ class Login extends CI_Controller
 	{
 		parent::__construct();
 
-		$this->load->helper('url');
-		$this->load->library('tank_auth');
+		//$this->load->helper('url');
+		//$this->load->library('tank_auth');
       //  $this->load->library('template');
 	}
 

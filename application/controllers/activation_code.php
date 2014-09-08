@@ -56,7 +56,7 @@ class Activation_code extends CI_Controller
                             
                             /***************************/
                             // Send Email with an activation LInk = base_url().'register/activate/abcd123'
-                            /* $this->email->from('office@carshelves.com', 'Carshelves.com');
+                            $this->email->from('office@carshelves.com', 'Carshelves.com');
                             $this->email->to($post['email']); 
                             //$this->email->cc('another@another-example.com'); 
                             //$this->email->bcc('them@their-example.com'); 
@@ -66,7 +66,7 @@ class Activation_code extends CI_Controller
 
                             $this->email->send();
 
-                            //echo $this->email->print_debugger();*/
+                            //echo $this->email->print_debugger();
                             /****************************/
                           
                           
