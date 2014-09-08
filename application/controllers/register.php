@@ -170,16 +170,17 @@ Letters, numbers, underscore only<br/>';
                     //$this->email->bcc('them@their-example.com'); 
 
                     $this->email->subject('Account Activation');
+					
+					/***************************/
+					$message = "";
+					$message .= "Welcome to Carshelves,<br> Please click on this link to activate your account <a href='".base_url()."activation_code/activate/".$userInfo->id."/".$userInfo->digits_code."'>Activate Your Account</a>.<br/>";
+					$message .= "Best Regards,<br> Carshelves.com Team";
+					/***************************/
+					
                     $this->email->message('test');	
 
                     $this->email->send();
 
-                  // try{
-                        $this->email->send();
-                        //echo 'Message has been sent.';
-                    //  }catch(Exception $e){
-                      //  echo $e->getMessage();
-                    //  }
                     
                     $error['success'] = TRUE;
                     $error['msg']   = '<strong>Activation Link:</strong><br/> was sent to your email address.';

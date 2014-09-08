@@ -22,6 +22,29 @@ class Activation_code extends CI_Controller
             $this->template->load('template/main', 'pages/activation_code', $info);
 	}
     
+	
+	function activate($user_id, $digits_code){
+		
+		if( isset($user_id) && isset($digits_code) ){
+			
+			$userinfo = $this->users->get_users_by_activation_code($digits_code);
+			
+			if($userinfo->id === $user_id){
+				$this->users->activate_user($userinfo->id, $digits_code, FALSE);
+			}else{
+				$redirect =  site_url("welcome");
+				redirect($redirect, 'refresh');
+			}
+			
+			//echo '<pre>'; print_r($userinfo); echo '</pre>'; exit;
+		}else{
+			$redirect =  site_url("welcome");
+			redirect($redirect, 'refresh');
+		}
+		
+	}
+	
+	
     function resend_code(){
         $error = Array();
         $error['error'] = FALSE;
