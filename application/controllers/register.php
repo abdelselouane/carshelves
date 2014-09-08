@@ -177,7 +177,7 @@ Letters, numbers, underscore only<br/>';
 					$message .= "Best Regards,<br> Carshelves.com Team";
 					/***************************/
 					
-                    $this->email->message('test');	
+                    $this->email->message($message);	
 
                     $this->email->send();
 
