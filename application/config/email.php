@@ -13,7 +13,7 @@
 $config['useragent']	= 'none';
 $config['protocol']		= 'smtp';
 $config['mailpath']		= 'none';
-$config['stmp_host']	= 'smtpout.secureserver.net';
+$config['stmp_host']	= 'mail.carshelves.com.';
 $config['stmp_user']	= 'office@carshelves.com';
 $config['stmp_pass']	= 'office1985004';
 $config['stmp_port']	= '25';
