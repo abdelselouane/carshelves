@@ -161,8 +161,8 @@ Letters, numbers, underscore only<br/>';
                 
                    $userInfo = $this->users->get_user_by_email($post['email']);
                 
-                  // echo '<pre>'; print_r($userInfo); echo '</pre>';
-                  //  exit;
+                  echo '<pre>'; print_r($userInfo); echo '</pre>';
+                 exit;
                     
                     $this->email->from('office@carshelves.com', 'Carshelves.com');
                     $this->email->to($data_user->email); 
@@ -173,7 +173,7 @@ Letters, numbers, underscore only<br/>';
 					
 					/***************************/
 					$message = "";
-					$message .= "Welcome to Carshelves,<br> Please click on this link to activate your account <a href='".base_url()."activation_code/activate/".$userInfo->id."/".$userInfo->digits_code."'>Activate Your Account</a>.<br/>";
+					$message .= "Welcome to Carshelves,<br> Please click on this link to activate your account <a href='".base_url()."activation_code/activate/".$userInfo->id."/".$userInfo->code_digits."'>Activate Your Account</a>.<br/>";
 					$message .= "Best Regards,<br> Carshelves.com Team";
 					/***************************/
 					
