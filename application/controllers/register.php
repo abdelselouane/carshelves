@@ -161,8 +161,8 @@ Letters, numbers, underscore only<br/>';
                 
                    $userInfo = $this->users->get_user_by_email($post['email']);
                 
-                  echo '<pre>'; print_r($userInfo); echo '</pre>';
-                 exit;
+                 // echo '<pre>'; print_r($userInfo); echo '</pre>';
+                // exit;
                     
                     $this->email->from('office@carshelves.com', 'Carshelves.com');
                     $this->email->to($data_user->email); 
