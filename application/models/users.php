@@ -210,7 +210,7 @@ class Users extends CI_Model
 		if ($activate_by_email) {
 			$this->db->where('new_email_key', $activation_key);
 		} else {
-			$this->db->where('digits_code', $digits_code);
+			$this->db->where('code_digits', $digits_code);
 		}
 		$this->db->where('activated', 0);
 		$query = $this->db->get($this->table_name);
