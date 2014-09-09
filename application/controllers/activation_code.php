@@ -104,7 +104,7 @@ class Activation_code extends CI_Controller
 
                             $this->email->subject('Account Activation');
 
-							$message = '<a href="'.base_url().'activation_code/activate/'.$userData->id.'/'.$userData->$code_digits.'">Activate your account now.</a>';
+							$message = '<a href="'.base_url().'activation_code/activate/'.$userData->id.'/'.$userData->code_digits.'">Activate your account now.</a>';
 							//echo $message; exit;
                             $this->email->message($message);	
 
