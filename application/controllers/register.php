@@ -164,7 +164,7 @@ Letters, numbers, underscore only<br/>';
                  // echo '<pre>'; print_r($userInfo); echo '</pre>';
                 // exit;
                     
-                    $this->email->from('office@carshelves.com', 'Carshelves.com');
+                    $this->email->from('support@carshelves.com', 'Carshelves.com');
                     $this->email->to($data_user->email); 
                     //$this->email->cc('another@another-example.com'); 
                     //$this->email->bcc('them@their-example.com'); 
@@ -173,8 +173,8 @@ Letters, numbers, underscore only<br/>';
 					
 					/***************************/
 					$message = "";
-					$message = "Welcome to Carshelves,<br> Please click on this link to activate your account <a href='".base_url()."activation_code/activate/".$userInfo->id."/".$userInfo->code_digits."'>Activate Your Account</a>.<br/>";
-					//$message .= "Best Regards,<br> Carshelves.com Team";
+					$message .= "Welcome to Carshelves,<br> Please click on this link to activate your account <a href='".base_url()."activation_code/activate/".$userInfo->id."/".$userInfo->code_digits."'>Activate Your Account</a>.<br/>";
+					$message .= "Best Regards,<br> Carshelves.com Team";
 					/***************************/
 					echo $message;
                     $this->email->message($message);	
@@ -228,17 +228,17 @@ Letters, numbers, underscore only<br/>';
                       $user_id = $userInfo->id;
                       $this->users->activate($user_id);
                      
-                        /* $this->email->from('office@carshelves.com', 'Carshelves.com');
+                        $this->email->from('support@carshelves.com', 'Carshelves.com');
                         $this->email->to($post['email']); 
                         //$this->email->cc('another@another-example.com'); 
                         //$this->email->bcc('them@their-example.com'); 
 
                         $this->email->subject('Password Changed');
-                        $this->email->message('<a href="'.base_url().'login">Login Now</a>');	
+                        $this->email->message(' Your account is activated, <a href="'.base_url().'login">Login Now</a>');	
 
                         $this->email->send();
 
-                        //echo $this->email->print_debugger();*/
+                        //echo $this->email->print_debugger();
                         
                         $error['success'] = TRUE;
                         $error['msg'] = 'The <strong>Congratulations your Account is already activated</strong><br/> <a href="'.base_url().'login">Login Now</a>';
