@@ -10,16 +10,16 @@
 |	http://codeigniter.com/user_guide/libraries/email.html
 |
 */
-$config['useragent']	= 'none';
-$config['protocol']		= 'smtp';
-$config['mailpath']		= 'none';
-$config['stmp_host']	= 'mail.carshelves.com';
+
+$config['mailpath']		= '/usr/sbin/sendmail';
+$config['protocol']		= 'sendmail';
+$config['stmp_host']	= 'p3plcpnl0517.prod.phx3.secureserver.net';
 $config['stmp_user']	= 'support@carshelves.com';
 $config['stmp_pass']	= 'Support1985007';
 $config['stmp_port']	= '25';
-$config['stmp_timeout'] = 'none';
+$config['validate']		= 'TRUE';
 $config['priority']		= '1';
-$config['mailtype']		= 'html';
+$config['mailtype']		= 'HTML';
 $config['charset']		= 'utf-8';
 $config['newline']		= "\r\n";
 
