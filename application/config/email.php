@@ -13,10 +13,10 @@
 $config['useragent']	= 'none';
 $config['protocol']		= 'smtp';
 $config['mailpath']		= 'none';
-$config['stmp_host']	= 'p3plcpnl0517.prod.phx3.secureserver.net';
+$config['stmp_host']	= 'mail.carshelves.com';
 $config['stmp_user']	= 'support@carshelves.com';
 $config['stmp_pass']	= 'Support1985007';
-$config['stmp_port']	= '465';
+$config['stmp_port']	= '25';
 $config['stmp_timeout'] = 'none';
 $config['priority']		= '1';
 $config['mailtype']		= 'html';
