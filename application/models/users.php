@@ -37,10 +37,11 @@ class Users extends CI_Model
 	 * @param	bool
 	 * @return	object
 	 */
-	function get_user_by_id($user_id, $activated)
+	function get_user_by_id($user_id, $activated = '')
 	{
 		$this->db->where('id', $user_id);
-		$this->db->where('activated', $activated ? 1 : 0);
+		if($activated)
+			$this->db->where('activated', $activated ? 1 : 0);
 
 		$query = $this->db->get($this->table_name);
 		if ($query->num_rows() == 1) return $query->row();
@@ -397,6 +398,22 @@ class Users extends CI_Model
 		$this->db->set('new_email_key', NULL);
 		$this->db->where('id', $user_id);
 		$this->db->where('new_email_key', $new_email_key);
+
+		$this->db->update($this->table_name);
+		return $this->db->affected_rows() > 0;
+	}
+	
+	
+	/**
+	 * Update email (replace old email with new one) .
+	 *
+	 * @param	int
+	 * @param	string
+	 */
+	function update_email($user_id, $new_email)
+	{
+		$this->db->set('email',  $new_email);
+		$this->db->where('id', $user_id);
 
 		$this->db->update($this->table_name);
 		return $this->db->affected_rows() > 0;

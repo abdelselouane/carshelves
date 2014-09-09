@@ -14,13 +14,22 @@ class Login extends CI_Controller
         
         $loginInfo = $this->session->all_userdata();
       // echo '<pre>'; print_r($loginInfo); echo '</pre>';exit;
-
-        if(isset($loginInfo['user_id']) && !empty($loginInfo['user_id'])){
-            //********************/check if account is active before permission/****************/
+		
+		/*if( !isset($loginInfo['activated']) || $loginInfo['activated'] === 0){
+				
+			$msg['error'] = "";
+			$msg['msg'] = "Please <strong>Activate Your Account</strong>.<br><a href='".base_url()."activation_code/resend_activation'>Resend Activation Code Link</a>";
+			$this->session->set_flashdata($msg);
+		}*/
+		
+        if( isset($loginInfo['user_id']) && empty($loginInfo['user_id'])){
+           
+			//********************/check if account is active before permission/****************/
             $info['user_id']    = $loginInfo['user_id'];
             $info['username']   = $loginInfo['username'];
             $info['email']      = $loginInfo['email'];
-
+			//$redirect =  site_url("profile");
+			//redirect($redirect, 'refresh');	
         }
         
         $info['success'] = ($this->session->flashdata('success')) ? $this->session->flashdata('success') : '';
@@ -127,7 +136,18 @@ Letters, numbers, underscore only<br/>';
                       
                       $this->users->update_login_info($loginInfo['user_id'], $loginInfo['ip_address'], gmdate("Y-d-m H:i:s", $loginInfo['last_activity']));
                       
-                       redirect(base_url().'welcome');
+					 
+					  if( isset( $loginInfo['activated'] ) && $loginInfo['activated'] == 0){
+					  	
+						$error['error'] = TRUE;
+                    	$error['msg'] = 'Please check your email box:<br/> An activation link was sent to you via this email address <strong>'.$loginInfo['email'].'</strong > ';
+                    	$error['msg'] .= 'provided when the account was created,<br/> OR go to <a href="'.base_url().'activation_code/">Activate My Account Now</a> to resend the link';
+						
+					  }else{
+					  	redirect(base_url().'profile');
+					  }
+					  //exit;
+                      // redirect(base_url().'welcome');
                       
                       
                   } else{

@@ -14,7 +14,7 @@
 					<!--h1><strong>Register</strong> with us</h1-->
                    
 					<div class="sell_box sell_box_1">
-                        <h2><strong>Resend Activation Code</strong></h2>
+                        <h2><strong>Resend Activation Link</strong></h2>
                         <!---->
                          <form id="activationCodeForm" action="<?= base_url().'activation_code/resend_code';?>" method="POST" class="form-vertical" data-toggle="validator">
                                 <div class="form-group" style="width:500px;" >
@@ -38,6 +38,16 @@
                                     
                                     <div class="form-group">
                                         <input type="email" id="email" class="form-control" name="email" placeholder="Please enter your email address" required/>
+                                    </div>
+                                    
+                                    <div class="sell_submit_wrapper">
+                                        <span class="custom_chb_wrapper fL">
+                                            <span class="custom_chb">
+                                                <input type="checkbox" name="new_email" checked/>
+                                            </span>
+                                            <label><span class="gold"><a href="#">I would like to set this email as the primary email address</a></span></label>
+                                        </span>
+                                        <div class="clear"></div>
                                     </div>
                                     
                                     <button type="submit" class="btn btn-primary" >Submit</button>

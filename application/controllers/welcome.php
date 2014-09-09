@@ -12,7 +12,7 @@ class Welcome extends CI_Controller
         $info = array();
         
         $loginInfo = $this->session->all_userdata();
-       // echo '<pre>'; print_r($loginInfo); echo '</pre>';exit;
+       //echo '<pre>'; print_r($loginInfo); echo '</pre>';exit;
 
         if(isset($loginInfo['user_id']) && !empty($loginInfo['user_id'])){
 

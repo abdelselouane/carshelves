@@ -10,6 +10,14 @@ class Activation_code extends CI_Controller
 
 	function index()
 	{
+			$loginInfo = $this->session->all_userdata();
+			//echo '<pre>'; print_r($loginInfo); echo '</pre>';exit;
+			if( !isset($loginInfo['user_id']) || $loginInfo['user_id'] == ''){
+				
+				redirect(base_url().'welcome');
+			}
+			
+			
 		    $info = array();
             $info['error'] = ($this->session->flashdata('error')) ? $this->session->flashdata('error') : '';
             $info['msg']   = ($this->session->flashdata('msg')) ? $this->session->flashdata('msg') : '';
@@ -26,12 +34,15 @@ class Activation_code extends CI_Controller
 	function activate($user_id, $digits_code){
 		
 		if( isset($user_id) && isset($digits_code) ){
-			
 			$userinfo = $this->users->get_users_by_activation_code($digits_code);
-			//echo '<pre>'; print_r($userinfo); echo '</pre>'; exit;
+			
 			if($userinfo->id === $user_id){
 				$this->users->activate_user($userinfo->id, $digits_code, FALSE);
-				$redirect =  site_url("profile");
+				
+				$error['success'] = TRUE;
+                $error['msg'] = 'Congratulations, your account is now activated.';
+				$this->session->set_flashdata($error);  
+				$redirect =  site_url("login");
 				redirect($redirect, 'refresh');
 			}else{
 				$redirect =  site_url("welcome");
@@ -52,6 +63,9 @@ class Activation_code extends CI_Controller
         $error['error'] = FALSE;
     
         $post = $this->input->post();
+		
+		 //echo '<pre>'; print_r($post); echo '</pre>';
+                   // exit;
         if(!empty($post) && is_array($post)){
             
             
@@ -74,6 +88,7 @@ class Activation_code extends CI_Controller
                       $active = $userInfo->activated;
                       if( $active != 1 ){
                       
+					  
                             $resetString    =  rand_string(16);
                             $resetCode      =  encryptIt($resetString); 
                     
@@ -81,12 +96,12 @@ class Activation_code extends CI_Controller
                             
                             /***************************/
                             // Send Email with an activation LInk = base_url().'register/activate/abcd123'
-                            $this->email->from('office@carshelves.com', 'Carshelves.com');
+                            $this->email->from('Support@carshelves.com', 'Carshelves.com');
                             $this->email->to($post['email']); 
                             //$this->email->cc('another@another-example.com'); 
                             //$this->email->bcc('them@their-example.com'); 
 
-                            $this->email->subject('Password Changed');
+                            $this->email->subject('Account Activation');
                             $this->email->message('<a href="'.base_url().'login">Login Now</a>');	
 
                             $this->email->send();
@@ -96,7 +111,7 @@ class Activation_code extends CI_Controller
                           
                           
                               $error['success'] = TRUE;
-                              $error['msg']   = 'A new <strong>Activation Code</strong> was sent to <strong>'.$post['email'].'</strong>. <br/><a href="'.base_url().'login">Login Now</a>';
+                              $error['msg']   = 'A new <strong>Activation Link</strong> was sent to <strong>'.$post['email'].'</strong>. <br/><a href="'.base_url().'login">Login Now</a>';
                           
                       }else{
                           
@@ -110,9 +125,44 @@ class Activation_code extends CI_Controller
                 
                 }else{
                     
-                    $error['error'] = TRUE;
-                    $error['msg']   = 'This email address : <strong>'.$post['email'].'</strong> does not exist.<br/> Please register with us <a href="'.base_url().'register">Register Now</a>';
-                
+					
+					if( isset($post['new_email']) && $post['new_email'] != ''){
+					  			$loginInfo = $this->session->all_userdata();
+						
+								// echo '<pre>'; print_r($loginInfo); echo '</pre>';
+                    			//exit;
+                    			
+								$loginInfo = $this->session->all_userdata();
+								$this->users->update_email($loginInfo['user_id'], $post['email']);
+								
+								//exit;
+								
+								$userData = $this->users->get_user_by_id($loginInfo['user_id']);
+								// echo '<pre>'; print_r($userData); echo '</pre>';
+                    			//exit;
+								/************************/
+								 /*** EMAIL **/
+								/************************/
+								// Send Email with an activation LInk = base_url().'register/activate/abcd123'
+                           		$this->email->from('Support@carshelves.com', 'Carshelves.com');
+                            	$this->email->to($userData->email); 
+                            	//$this->email->cc('another@another-example.com'); 
+                            	//$this->email->bcc('them@their-example.com'); 
+
+                            	$this->email->subject('Account Activation');
+								$message = '<a href="'.base_url().'activation_code/activate/'.$userData->id.'/'.$userData->$code_digits.'">Activate your account now.</a>';
+								//echo $message; exit;
+                            	$this->email->message($message);	
+
+                            	$this->email->send();
+
+                            	//echo $this->email->print_debugger();
+								$error['success'] = TRUE;
+                                $error['msg']   = 'A new <strong>Activation Link</strong> was sent to <strong>'.$userData->email.'</strong>. <br/><a href="'.base_url().'login">Login Now</a>';
+					 }else{
+                   			 $error['error'] = TRUE;
+                    		 $error['msg']   = 'This email address : <strong>'.$post['email'].'</strong> does not exist.<br/> Please register with us <a href="'.base_url().'register">Register Now</a>';
+					 }
                 }
                 
                

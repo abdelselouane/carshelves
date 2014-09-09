@@ -176,12 +176,12 @@ Letters, numbers, underscore only<br/>';
 					$message .= "Welcome to Carshelves,<br> Please click on this link to activate your account <a href='".base_url()."activation_code/activate/".$userInfo->id."/".$userInfo->code_digits."'>Activate Your Account</a>.<br/>";
 					$message .= "Best Regards,<br> Carshelves.com Team";
 					/***************************/
-					echo $message;
+					//echo $message;
                     $this->email->message($message);	
 
                     $this->email->send();
 
-                    echo $this->email->print_debugger();exit;
+                    //echo $this->email->print_debugger();exit;
                     $error['success'] = TRUE;
                     $error['msg']   = '<strong>Activation Link:</strong><br/> was sent to your email address.';
                    // echo '<pre>'; print_r($error); echo '<pre/>'; exit;
