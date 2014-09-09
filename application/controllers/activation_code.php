@@ -89,20 +89,24 @@ class Activation_code extends CI_Controller
                       if( $active != 1 ){
                       
 					  
-                            $resetString    =  rand_string(16);
-                            $resetCode      =  encryptIt($resetString); 
+                           // $resetString    =  rand_string(16);
+                          //  $resetCode      =  encryptIt($resetString); 
                     
-                            $this->users->resetPasswordCode($userInfo->id, $resetCode, $resetString);
-                            
+                          //  $this->users->resetPasswordCode($userInfo->id, $resetCode, $resetString);
+                            $userData = $this->users->get_user_by_id($userInfo->id);
+							
                             /***************************/
                             // Send Email with an activation LInk = base_url().'register/activate/abcd123'
                             $this->email->from('Support@carshelves.com', 'Carshelves.com');
-                            $this->email->to($post['email']); 
+                            $this->email->to($userData->email); 
                             //$this->email->cc('another@another-example.com'); 
                             //$this->email->bcc('them@their-example.com'); 
 
                             $this->email->subject('Account Activation');
-                            $this->email->message('<a href="'.base_url().'login">Login Now</a>');	
+
+							$message = '<a href="'.base_url().'activation_code/activate/'.$userData->id.'/'.$userData->$code_digits.'">Activate your account now.</a>';
+							//echo $message; exit;
+                            $this->email->message($message);	
 
                             $this->email->send();
 
@@ -111,7 +115,7 @@ class Activation_code extends CI_Controller
                           
                           
                               $error['success'] = TRUE;
-                              $error['msg']   = 'A new <strong>Activation Link</strong> was sent to <strong>'.$post['email'].'</strong>. <br/><a href="'.base_url().'login">Login Now</a>';
+                              $error['msg']   = 'A new <strong>Activation Link</strong> was sent to <strong>'.$userData->email.'</strong>. <br/><a href="'.base_url().'login">Login Now</a>';
                           
                       }else{
                           
