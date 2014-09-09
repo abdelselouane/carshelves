@@ -66,7 +66,7 @@ class Forgot_password extends CI_Controller
                     
                   //  exit;
                 
-                    $this->email->from('office@carshelves.com', 'Carshelves.com');
+                    $this->email->from('support@carshelves.com', 'Carshelves.com');
                     $this->email->to($post['email']); 
                     //$this->email->cc('another@another-example.com'); 
                     //$this->email->bcc('them@their-example.com'); 
@@ -79,7 +79,7 @@ class Forgot_password extends CI_Controller
                     //echo $this->email->print_debugger();
                 
                     $error['success'] = TRUE;
-                    $error['msg'] = 'An email was sent to <strong>'.$post['email'].'</strong> with an <strong>Activation Link</strong>';
+                    $error['msg'] = 'An email was sent to <strong>'.$post['email'].'</strong> with an <strong>Reset Password Link</strong>';
                     $error['email'] = $post['email'];
                     $this->session->set_flashdata($error);
                     redirect(base_url().'forgot_password');

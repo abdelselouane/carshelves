@@ -32,7 +32,7 @@ class Reset_password extends CI_Controller
     function reset(){
     
         $post = $this->input->post();
-       // echo '<pre>'; print_r($post); echo '</pre>'; exit;
+        echo '<pre>'; print_r($post); echo '</pre>'; exit;
         
         if(!empty($post) && is_array($post)){
         
