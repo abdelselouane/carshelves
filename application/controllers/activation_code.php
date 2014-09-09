@@ -28,9 +28,11 @@ class Activation_code extends CI_Controller
 		if( isset($user_id) && isset($digits_code) ){
 			
 			$userinfo = $this->users->get_users_by_activation_code($digits_code);
-			
+			//echo '<pre>'; print_r($userinfo); echo '</pre>'; exit;
 			if($userinfo->id === $user_id){
 				$this->users->activate_user($userinfo->id, $digits_code, FALSE);
+				$redirect =  site_url("profile");
+				redirect($redirect, 'refresh');
 			}else{
 				$redirect =  site_url("welcome");
 				redirect($redirect, 'refresh');

@@ -115,6 +115,9 @@
     <script type="text/javascript" src="<?= base_url().'js/'?>login.js"></script>
     <? } ?>
     <!-- End bootstrap JS-->
+    <? if(!empty($page) && ( $page === 'profile' ) ){?>
+    <script type="text/javascript" src="<?= base_url().'js/'?>profile.js"></script>
+    <? } ?>
     <script type="text/javascript" src="<?= base_url().'js/'?>vehicle_information.js"></script>
     <script type="text/javascript" src="<?= base_url().'js/'?>js.js"></script>
     <script type="text/javascript" src="<?= base_url().'js/'?>jquery.checkbox.js"></script>
