@@ -72,7 +72,7 @@ class Forgot_password extends CI_Controller
                     //$this->email->bcc('them@their-example.com'); 
 
                     $this->email->subject('Reset Your Password Link');
-					$message = '<a href="'.base_url().'reset_password/'.$userInfo->id.'/'.$resetString.'">Reset Password</a>';
+					$message = '<a href="'.base_url().'reset_password/index/'.$userInfo->id.'/'.$resetString.'">Reset Password</a>';
                     $this->email->message($message);	
 
                     $this->email->send();
