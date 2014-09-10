@@ -37,33 +37,58 @@
                                     <?}?>
                                     
                                     <?if(!isset($success) || empty($success)){?>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="username" placeholder="Username" value="<?=(isset($username) && !empty($error) && $error === TRUE) ? $username : '' ?>" required/>
-                                    </div>
-                                     
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" name="email" placeholder="Email address" value="<?=(isset($email) && !empty($error) && $error === TRUE) ? $email : '' ?>" required/>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <input type="password" id="password" class="form-control" name="password" placeholder="Password" required/>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" id="cpassword" name="cpassword"  placeholder="Confirm Password" data-match="#password" data-match-error="Whoops, Passwords don't match" required/>
-                                    </div>
-                                    
-                                    <div class="sell_submit_wrapper">
-                                        <span class="custom_chb_wrapper fL">
-                                            <span class="custom_chb">
-                                                <input type="checkbox" name="terms" required checked/>
-                                            </span>
-                                            <label><span class="gold"><a href="#">I agree to the Terms and Conditions</a></span></label>
-                                        </span>
-                                        <div class="clear"></div>
-                                    </div>
-                                    
-                                    <button type="submit" class="btn btn-primary" >Register</button>
+                                    	
+                                    	<div class="row-fluid">
+										  <div class="span7">
+										  	
+										  	<div class="row-fluid form-group">
+                                        			<input type="text" class="form-control" name="username" placeholder="Username" value="<?=(isset($username) && !empty($error) && $error === TRUE) ? $username : '' ?>" required/>
+                                    		</div>
+										  	
+                                    		<div class="row-fluid form-group">
+                                        		<input type="email" class="form-control" name="email" placeholder="Email address" value="<?=(isset($email) && !empty($error) && $error === TRUE) ? $email : '' ?>" required/>
+                                    		</div>
+                                    		
+                                    		<div class="row-fluid form-group">
+                                        		<input type="password" id="password" class="form-control" name="password" placeholder="Password" required/>
+                                   			</div>
+                                   			
+                                   			<div class="row-fluid form-group">
+	                                        	<input type="password" class="form-control" id="cpassword" name="cpassword"  placeholder="Confirm Password" data-match="#password" data-match-error="Whoops, Passwords don't match" required/>
+	                                    	</div>
+	                                    	
+	                                    	
+	                                    		<div class="sell_submit_wrapper">
+			                                        <span class="custom_chb_wrapper fL">
+			                                            <span class="custom_chb">
+			                                                <input type="checkbox" name="terms" required checked/>
+			                                            </span>
+			                                            <label><span class="gold"><a href="#">I agree to the Terms and Conditions</a></span></label>
+			                                        </span>
+			                                        <div class="clear"></div>
+			                                    </div>
+	                                    	
+                                    			<button type="submit" class="btn btn-primary" >Register</button>
+										  </div>
+										  <div class="span5">
+										  	
+										  	<div class="form-group">
+		                                         <button style="text-align: left; width:200px;" class="btn btn-facebook"><i class="fa fa-facebook"></i> | Register with Facebook</button>
+		                                    </div>
+		                                    
+		                                     <div class="form-group">
+		                                         <button style="text-align: left; width:200px;" class="btn btn-google-plus"><i class="fa fa-google-plus"></i> | Register with Google</button>
+		                                    </div>
+		                                    
+		                                    <div class="form-group">
+		                                        <button style="text-align: left; width:200px;" class="btn btn-twitter"><i class="fa fa-twitter"></i> | Register with Twitter</button>
+		                                    </div>
+		                                    		
+		                                    		
+                                    	 </div>                                    	
+										</div>
+                                    	
+                                   
                                     <?}?>
                                 </div>
                             

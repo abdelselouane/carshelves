@@ -44,6 +44,25 @@
                                         <input type="password" id="password" class="form-control" name="password" placeholder="Password" required/>
                                     </div>
                                     
+                                    
+                                    <div class="form-group">
+                                    	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
+</div>
+                                         <button type="button" style="text-align: left; width:200px;" class="btn btn-facebook" onclick="checkLoginState();"><i class="fa fa-facebook"></i> | Sign in with Facebook</button>
+                                    </div>
+                                    
+                                     <div class="form-group">
+                                         <button type="button" style="text-align: left; width:200px;" class="btn btn-google-plus"><i class="fa fa-google-plus"></i> | Sign in with Google</button>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <button type="button" style="text-align: left; width:200px;" class="btn btn-twitter"><i class="fa fa-twitter"></i> | Sign in with Twitter</button>
+                                    </div>
+                                    
+                                    
                                     <div class="form-group">
                                         <p>
                                             <a href="<?=base_url().'forgot_password'?>">Forgot Password</a><br/>
