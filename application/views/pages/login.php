@@ -46,12 +46,7 @@
                                     
                                     
                                     <div class="form-group">
-                                    	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-
-<div id="status">
-</div>
-                                         <button type="button" style="text-align: left; width:200px;" class="btn btn-facebook" onclick="checkLoginState();"><i class="fa fa-facebook"></i> | Sign in with Facebook</button>
+                                         <fb:login-button style="text-align: left; width:200px;" class="btn btn-facebook" scope="public_profile,email" onclick="FB.getLoginStatus();"><i class="fa fa-facebook"></i> | Sign in with Facebook</fb:login-button>
                                     </div>
                                     
                                      <div class="form-group">

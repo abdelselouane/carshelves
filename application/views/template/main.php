@@ -167,8 +167,22 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
+      
+      $.ajax({
+            url: "<?= base_url()?>ajax_social/fb_login",
+            type: 'POST',
+            data: response,
+            dataType: 'html',
+            success: function(data, textStatus, xhr) {
+            	alert(data.responseText);
+            	console.log(xhr);
+            	
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                alert(textStatus);
+            }
+        });
+      
     });
   }
 </script>
