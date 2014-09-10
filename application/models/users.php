@@ -64,6 +64,19 @@ class Users extends CI_Model
 		if ($query->num_rows() == 1) return $query->row();
 		return NULL;
 	}
+	
+	/**
+	 * Clear user code digits by user id
+	 *
+	 * @param	int
+	 */
+	function clearCodeDigits($user_id)
+	{
+		$this->db->set('code_digits', '');
+		$this->db->where('id', $user_id);
+		$this->db->update($this->table_name);
+		return TRUE;
+	}
 
 	/**
 	 * Get user record by login (username or email)
@@ -449,9 +462,9 @@ class Users extends CI_Model
 	 * @param	bool
 	 * @return	void
 	 */
-    function resetPasswordCode($user_id, $reset_code, $reset_digits)
+    function resetPasswordCode($user_id, $reset_digits)
 	{
-		$this->db->set('new_password_key', $reset_code);
+		//$this->db->set('new_password_key', $reset_code);
         $this->db->set('code_digits', $reset_digits);
 		$this->db->set('new_password_requested', date('Y-m-d H:i:s'));
 

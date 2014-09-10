@@ -6,16 +6,17 @@
 					<span>Reset Password</span>
 				</div>
 				<div class="main_wrapper">
-					<!--div class="steps">
-						<span>1. Enter</span>
-						<span>2. preview</span>
-						<span>3. submit</span>
-					</div-->
-					<!--h1><strong>Register</strong> with us</h1-->
-                   
+					
+                    <div class="alert alert-info" role="alert">
+                    	<p>	
+                    		Please do not refresh this page till you provide your <strong>New Password</strong> and <strong>Confirm It</strong>. <br>
+                    		This page displays one time per <strong>RESET</strong>, otherwise you may need to go trough the same process to get a <strong>Reset Password Link</strong> sent to your email.
+                    	</p>
+                    </div>
 					<div class="sell_box sell_box_1">
                         <h2><strong>Reset Password</strong></h2>
-                        <!---->
+                       
+
                          <form id="resetPasswordForm" action="<?= base_url().'reset_password/reset';?>" method="POST" class="form-vertical" data-toggle="validator">
                                 <div class="form-group" style="width:500px;" >
                                     

@@ -60,19 +60,20 @@ class Forgot_password extends CI_Controller
                    // echo '<pre>'; print_r($userInfo); echo '</pre>';
                     
                     $resetString    =  rand_string(16);
-                    $resetCode      =  encryptIt($resetString); 
+                   // $resetCode      =  encryptIt($resetString); 
                     
-                    $this->users->resetPasswordCode($userInfo->id, $resetCode, $resetString);
+                    $this->users->resetPasswordCode($userInfo->id, $resetString);
                     
-                  //  exit;
+                   // exit;
                 
                     $this->email->from('support@carshelves.com', 'Carshelves.com');
                     $this->email->to($post['email']); 
                     //$this->email->cc('another@another-example.com'); 
                     //$this->email->bcc('them@their-example.com'); 
 
-                    $this->email->subject('Forgot Password Activation');
-                    $this->email->message('<a href="'.base_url().'reset_password">Reset Password</a>');	
+                    $this->email->subject('Reset Your Password Link');
+					$messgae = '<a href="'.base_url().'reset_password/'.$userInfo->id.'/'.$resetString.'">Reset Password</a>';
+                    $this->email->message($message);	
 
                     $this->email->send();
 
