@@ -126,7 +126,7 @@ class Reset_password extends CI_Controller
 					
 					$userData = $this->users->get_user_by_id($user_id);
                     $this->email->from('support@carshelves.com', 'Carshelves.com');
-                    $this->email->to($userData['email']); 
+                    $this->email->to($userData->email); 
                     //$this->email->cc('another@another-example.com'); 
                     //$this->email->bcc('them@their-example.com'); 
 

@@ -80,7 +80,7 @@ class Forgot_password extends CI_Controller
                     //echo $this->email->print_debugger();
                 
                     $error['success'] = TRUE;
-                    $error['msg'] = 'An email was sent to <strong>'.$post['email'].'</strong> with an <strong>Reset Password Link</strong>';
+                    $error['msg'] = 'An email was sent to <strong>'.$post['email'].'</strong> with a <strong>Reset Password Link</strong>';
                     $error['email'] = $post['email'];
                     $this->session->set_flashdata($error);
                     redirect(base_url().'forgot_password');
