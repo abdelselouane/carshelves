@@ -12,7 +12,7 @@
             </div>
             <div style="font-size:14px;">
                 <?if(isset($user_id)){?>
-                <a href="<?=base_url().'login/logout'?>">Logout</a>
+                <a onclick="logout();">Logout</a>
                 <?}else{?>
                 <a href="<?=base_url().'login'?>">Login&nbsp;|&nbsp;</a>
                 <a href="<?=base_url().'register'?>">Register</a>

@@ -476,6 +476,17 @@ class Users extends CI_Model
 	}
 
 	/**
+	 * Update user info
+	 *
+	 * @param	int
+	 */
+	function updateUserInfo($user_id, $data)
+	{
+		$this->db->where('id', $user_id);
+		$this->db->update($this->table_name, $data);
+	}
+
+	/**
 	 * Ban user
 	 *
 	 * @param	int

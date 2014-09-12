@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Login extends CI_Controller
+class Ajax_social extends CI_Controller
 {
 	function __construct()
 	{
@@ -43,10 +43,102 @@ class Login extends CI_Controller
         $this->template->load('template/main', 'pages/login', $info);
 		
 	}
+
+	function fb_login(){
+		
+		  $post = $this->input->post();
+		 // print_r($post['data']); exit;
+		//echo '<pre>'; print_r($post); echo '</pre>';exit;
+		  
+		  if( isset($post['data']) && is_array($post['data']) ){
+		  	
+			if( isset($post['data']['email']) && $post['data']['email'] != ''){
+					
+				$userData = $this->users->get_user_by_email($post['data']['email']);
+				
+				if(is_object($userData) && !empty($userData)){
+					
+						$arrayInfo['user_id']	= $userData->id;
+                      	$arrayInfo['username']	= $userData->username;
+                      	$arrayInfo['email']		= $userData->email;
+                      	$arrayInfo['activated']	= $userData->activated;
+                      
+                      	$this->session->set_userdata($arrayInfo);
+                      
+                      	$loginInfo = $this->session->all_userdata();
+                      
+                      	$this->users->update_login_info($loginInfo['user_id'], $loginInfo['ip_address'], gmdate("Y-d-m H:i:s", $loginInfo['last_activity']));
+					
+					  if($userData->activated == 0){
+						/***** Account Exist but Not Activated *******/
+						$this->users->activate($userData->id);
+					  }
+					  
+					  	$response['error']		= FALSE;
+						$response['success']	= TRUE;
+                		$response['msg']		= 'Thank you for using <strong>Your Facebook Account</strong> to sign in with us, we will redirect you to your <strong>Account Dashboard </strong>';
+						$response['redirect']	= base_url()."profile";
+						
+						echo json_encode($response); exit;
+					
+				}else{
+				
+					/******** New Account create and activate **********/
+					
+					$userData['email'] = $post['data']['email'];
+					$userData['token'] = rand_string(32);
+					 
+					$result = $this->users->create_user($userData, TRUE);
+					
+					$userInfo = $this->users->get_user_by_id($result['user_id']);
+					
+					$arrayInfo['user_id']	= $userInfo->id;
+                  	$arrayInfo['username']	= $userInfo->username;
+                  	$arrayInfo['email']		= $userInfo->email;
+                  	$arrayInfo['activated']	= $userInfo->activated;
+                  
+                  	$this->session->set_userdata($arrayInfo);
+                  
+                  	$loginInfo = $this->session->all_userdata();
+                  
+                  	$this->users->update_login_info($loginInfo['user_id'], $loginInfo['ip_address'], gmdate("Y-d-m H:i:s", $loginInfo['last_activity']));
+					
+					$response['error']		= FALSE;
+					$response['success']	= TRUE;
+					$response['msg']		= 'Thank you for using <strong>Your Facebook Account</strong> to sign in with us, we will redirect you to <strong>Complete Account</strong>';
+					$response['redirect']	= base_url()."register/completeRegistration/";
+					echo json_encode($response); exit;		
+				}
+			
+			}else{
+				
+				/******** Email needs to be provided **********/
+				
+				$response['error'] 		= TRUE;
+				$response['success'] 	= FALSE;
+                $response['msg'] 		= 'The email address is a required information in order to login with a <strong>Facebook account</strong>. Please allow us to use your email address.';
+				$response['redirect']	= base_url()."activation_code";
+				echo json_encode($response); exit;
+				
+			}
+			
+		  }else{
+		  	
+				/******** Post Data Never Received **********/
+			
+		  		$response['error'] 	= TRUE;
+				$response['success'] 	= FALSE;
+                $response['msg'] 		= 'An error occured when fetching your Facebook account information. Please try again.';
+				$response['redirect']	= base_url()."activation_code";
+				echo json_encode($response); exit;
+				
+		  }
+		
+	}
     
     function logout(){
         $this->session->sess_destroy();
-        redirect(base_url().'welcome');
+        redirect(base_url().'login');
     }
     
     function signin(){
@@ -202,5 +294,5 @@ Letters, numbers, underscore only<br/>';
     
 }
 
-/* End of file login.php */
-/* Location: ./application/controllers/login.php */
+/* End of file Ajax_social.php */
+/* Location: ./application/controllers/Ajax_social.php */

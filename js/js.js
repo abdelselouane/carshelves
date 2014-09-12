@@ -6,7 +6,7 @@ jQuery(document).ready(function(){
         var str =  $( this ).attr('id');
         var res = str.split("-");
         var id	= res[0]; 
-        console.log(id);
+        //console.log(id);
         if( !$("#"+id+"Sub").is(":visible")){
                 $(document).click();
                 $("#"+id+"-main").addClass('current');
