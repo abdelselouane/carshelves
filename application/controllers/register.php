@@ -125,7 +125,7 @@ Letters, numbers, underscore only<br/>';
             }else{
                 
                $error['error'] = TRUE;
-               $error['msg'] = 'Please accept our Terms & Conditions to create a new account';
+               $error['msg'] = 'Please accept our Terms & Conditions to complete your registration';
                
                 
             }

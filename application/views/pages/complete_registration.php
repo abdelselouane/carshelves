@@ -11,7 +11,7 @@
 					<div class="sell_box sell_box_1">
                         <h2><?=(!isset($success) || empty($success)) ? '<strong>Complete Registration</strong>' : '<strong>Registration</strong> Completed' ;?></h2>
                         <!---->
-                         <form id="CompleteRegisterForm" action="<?= base_url().'register/completeRegisterUser';?>" method="POST" class="form-vertical" data-toggle="validator">
+                         <form id="completeRegisterForm" action="<?= base_url().'register/completeRegisterUser';?>" method="POST" class="form-vertical" data-toggle="validator">
                                 <div class="" style="width:500px;" >
                                     
                                     <? if(!empty($error) && $error === TRUE){?>
@@ -91,3 +91,27 @@
 			</div>
 		</div>
         <!-- container -->
+        <!-- set up the modal to start hidden and fade in and out -->
+		<div id="modal-password" class="modal fade" >
+		  <div class="modal-dialog">
+		    <div class="modal-content gray-layout modal-small" style="width:300px;">
+		      <!-- dialog body -->
+		      <div class="modal-header main-blue" >
+		      	<img src="<?= base_url();?>images/logo.png" width="60" height="auto">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		      </div>
+		      <div class="modal-body">
+		        <div class="alert alert-danger" role="alert">
+	                <p>
+	                    The passwords provided are not matching.<br>
+	                    The password must be more than 6 and less than 30 characters long.<br>
+	                    The password can only consist of alphabetical, number and underscore.<br>
+	                    Please try again.
+	                </p>
+	            </div>
+		      </div>
+		      <!-- dialog buttons -->
+		      <div class="modal-footer main-blue" ><button type="button" class="btn btn-primary">OK</button></div>
+		    </div>
+		  </div>
+		</div>

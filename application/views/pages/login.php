@@ -98,15 +98,16 @@
         <!-- container -->
 		<div id="myModal" class="modal fade">
 		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
+		    <div class="modal-content gray-layout">
+		      <div class="modal-header main-blue">
+		      	<img src="<?= base_url();?>images/logo.png" width="60" height="auto">
 		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-		        <h3 id="modal-title" class="modal-title"></h3>
+		        <h3 id="modal-title" class="modal-title" style="color:#F2DEDE"></h3>
 		      </div>
 		      <div class="modal-body">
 		        <div id="modal-msg"></div>
 		      </div>
-		      <div class="modal-footer">
+		      <div class="modal-footer main-blue">
 		      	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 		        <a id="modal-logout" style="display:none;" type="button" href="" class="btn btn-primary" onclick="logout();" >Log Out</a>
 		        <a id="modal-redirect" type="button" href="" class="btn btn-primary">Continue</a>

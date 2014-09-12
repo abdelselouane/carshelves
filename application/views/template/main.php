@@ -224,25 +224,24 @@ function CallAfterLogin(){
 					            	//alert(data);
 					            	var dataInfo = JSON.parse(data);
 					            					            	
-					            	$('#modal-title').empty();
+					            	
 					            	$('#modal-msg').empty();
 					            	$('#modal-redirect').attr('href', '');
 					            	
 					            	var HTMLdiv			= '';
-					            	var HTMLtitle		= '';
 					            	var HTMLredirect	= '';
 					            	
 					            	if(dataInfo.success){
-					            		HTMLtitle		= '<span class="blue">Welcome to <span class="gold">Carshelves</span>.com</span>';
+					            		
 					            		HTMLdiv			= '<div class="alert alert-success" role="alert"><p>'+dataInfo.msg+'</p></div>';
 					            		HTMLredirect	= dataInfo.redirect;
 					            	}else{
-					            		HTMLtitle		= '<span class="blue">Welcome to <span class="gold">Carshelves</span>.com</span>';
+					            		
 					            		HTMLdiv 		= '<div class="alert alert-danger" role="alert"><p>'+dataInfo.msg+'</p></div>';
 					            		HTMLredirect	= dataInfo.redirect;
 					            	}
 					            	
-					            	$('#modal-title').append(HTMLtitle);
+					            	
 					            	$('#modal-msg').append(HTMLdiv);
 					            	$('#modal-redirect').attr('href', HTMLredirect);
 					            	
@@ -265,17 +264,16 @@ function CallAfterLogin(){
 		 	
 		 }else if( response.status === 'connected' ){
 		 	
-		 	$('#modal-title').empty();
+		 	
         	$('#modal-msg').empty();
         	$('#modal-redirect').attr('href', '');
 		 	
-		 	HTMLtitle		= '<span class="blue">Welcome to <span class="gold">Carshelves</span>.com</span>';
+		 	
     		HTMLdiv 		= '<div class="alert alert-success" role="alert"><p>You are already connected with your <strong>Facebook Account</strong></p></div>';
     		HTMLredirect	= '<?=base_url().'profile'?>';
     		
     		$('#modal-logout').show();
     		
-    		$('#modal-title').append(HTMLtitle);
 	    	$('#modal-msg').append(HTMLdiv);
 	    	$('#modal-redirect').attr('href', HTMLredirect);
 		 	
@@ -286,17 +284,16 @@ function CallAfterLogin(){
 		 	
 		 	//alert('login failed');
 		 	
-		 	$('#modal-title').empty();
+		 	
         	$('#modal-msg').empty();
         	$('#modal-redirect').attr('href', '');
 		 	
-		 	HTMLtitle		= '<span class="blue">Welcome to <span class="gold">Carshelves</span>.com</span>';
+		 	
     		HTMLdiv 		= '<div class="alert alert-danger" role="alert"><p>You are not connected with your <strong>Facebook Account</strong>, Please try again <strong>Login Failed</strong> </p></div>';
     		HTMLredirect	= '<?=base_url().'login'?>';
     		
     		$('#modal-logout').show();
     		
-    		$('#modal-title').append(HTMLtitle);
 	    	$('#modal-msg').append(HTMLdiv);
 	    	$('#modal-redirect').attr('href', HTMLredirect);
 		 	

@@ -148,7 +148,12 @@ $(document).ready(function() {
             $cpassword = $('#cpassword').val();
             
             if( $password !== $cpassword ){
-                alert("The passwords are not matching, please try again.");
+                //alert("The passwords are not matching, please try again.");
+                $("#modal-password").modal({                    // wire up the actual modal functionality and show the dialog
+			      "backdrop"  : "static",
+			      "keyboard"  : true,
+			      "show"      : true                     // ensure the modal is shown immediately
+			    });
                 $('#cpassword').val('');
                 $('#cpassword').focus();
             }else{
