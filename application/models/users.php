@@ -231,6 +231,7 @@ class Users extends CI_Model
 
 			$this->db->set('activated', 1);
 			$this->db->set('new_email_key', NULL);
+			$this->db->set('code_digits', NULL);
 			$this->db->where('id', $user_id);
 			$this->db->update($this->table_name);
 
