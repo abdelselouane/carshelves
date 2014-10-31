@@ -31,7 +31,7 @@ class Activation extends CI_Controller {
 						$error['success'] = TRUE;
                     	$error['msg']   = 'Your account has been activated';
 						
-						$result = json_encode(array("status"=>$error['success'], "message"=>$error['msg'], "data"=>''));
+						$result = json_encode(array("status"=>1, "message"=>'action succeed', "data"=>$error));
 				   		print_r($result);  exit;
 						
 					}
@@ -40,7 +40,7 @@ class Activation extends CI_Controller {
 					$error['success'] = FALSE;
                 	$error['msg']   = 'This account was already activated';
 					
-					$result = json_encode(array("status"=>$error['success'], "message"=>$error['msg'], "data"=>''));
+					$result = json_encode(array("status"=>0, "message"=>'action failed', "data"=>$error));
 			   		print_r($result);  exit;
 				}
 				
@@ -49,7 +49,7 @@ class Activation extends CI_Controller {
 				$error['success'] = FALSE;
             	$error['msg']   = 'This user account does not exist. Please try again';
 				
-				$result = json_encode(array("status"=>$error['success'], "message"=>$error['msg'], "data"=>''));
+				$result = json_encode(array("status"=>0, "message"=>'action failed', "data"=>$error));
 		   		print_r($result);  exit;
 			}
 			
