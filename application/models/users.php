@@ -146,10 +146,8 @@ class Users extends CI_Model
 	 */
 	function check_credentials($data)
 	{
-       // $where = " (username='".strtolower($data['username_email'])."' OR email='".strtolower($data['username_email'])."') AND password='".$data['password']."'";
-
-		$this->db->where('LOWER(email)=', strtolower($data['username_email']));
-		$this->db->or_where('LOWER(username)=', strtolower($data['username_email']));
+        $where = '( LOWER(username) = "'.$data['username_email'].'" OR LOWER(email) = "'.$data['username_email'].'" ) AND password = "'.$data['password'].'"' ;
+		$this->db->where($where);
 		$query = $this->db->get($this->table_name);
 		if ($query->num_rows() == 1) return $query->row();
 		return NULL;
