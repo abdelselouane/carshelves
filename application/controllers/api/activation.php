@@ -23,9 +23,9 @@ class Activation extends CI_Controller {
 			
 			if( is_object($user_info) && !empty($user_info)){
 					
-				if(!empty($user_info['code_digits'])){
+				if(!empty($user_info->code_digits)){
 						
-					if($user_info['code_digits'] == $digit_code){
+					if($user_info->code_digits == $digit_code){
 						$this->users->activate_user($userId, $digit_code, FALSE);
 						
 						$error['success'] = TRUE;
