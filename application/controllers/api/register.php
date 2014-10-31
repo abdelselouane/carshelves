@@ -189,9 +189,9 @@ Letters, numbers, underscore only';
                    // echo '<pre>'; print_r($userInfo); echo '</pre>';
                     
                     $resetString    =  rand_string(16);
-                    $resetCode      =  encryptIt($resetString); 
+                    $resetCode      =  url_encrypt($resetString); 
                     
-                    $this->users->resetPasswordCode($userInfo->id, $resetCode, $resetString);
+                    $this->users->resetPasswordCode($userInfo->id, $resetCode);
                 
                     $userInfo = $this->users->get_user_by_email($post['email']);
                 
