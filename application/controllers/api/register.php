@@ -16,6 +16,7 @@ class Register extends CI_Controller {
 		$this->load->view('API_VIEW/register');
 	}
 	
+	
 	function registerUser(){
 		
         $post = $this->input->post();
@@ -204,7 +205,7 @@ Letters, numbers, underscore only';
 					
 					/***************************/
 					$message = "";
-					$message .= "Welcome to Carshelves,<br> Please click on this link to activate your account <a href='".base_url()."activation_code/activate/".$userInfo->id."/".$userInfo->code_digits."'>Activate Your Account</a>.<br/>";
+					$message .= "Welcome to Carshelves,<br> Please click on this link to activate your account <a href='".base_url()."activation/activate/".$userInfo->id."/".$userInfo->code_digits."'>Activate Your Account</a>.<br/>";
 					$message .= "Best Regards,<br> Carshelves.com Team";
 					/***************************/
 					
