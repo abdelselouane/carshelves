@@ -7,19 +7,24 @@ class Register extends CI_Controller {
 	public function index()
 	{
 		
-		$error['error'] = TRUE;
+		/*$error['error'] = TRUE;
         $error['msg'] = 'Sorry, you need to specify what function you are looking for to get an answer back.';
 		
 		$result = json_encode(array("status"=>0, "message"=>"action failed", "data"=>$error));
-		print_r($result);  exit;
+		print_r($result);  exit;*/
+		
+		$this->load->view('API_VIEW/register');
 	}
 	
-	function registerUser($AppToken){
+	function registerUser(){
 		
         $post = $this->input->post();
         
-		if( isset($AppToken) && !empty($AppToken) ){
-			if($AppToken !== $this->AppToken){
+		//echo '<pre>'; print_r($post); echo '</pre>';
+		//exit;
+		
+		if( isset($post['AppToken']) && !empty($post['AppToken']) ){
+			if($post['AppToken'] !== $this->AppToken){
 				$error['error'] = TRUE;
 	            $error['msg'] = 'The App Token is not correct. Please try again.';
 				
@@ -93,7 +98,7 @@ class Register extends CI_Controller {
                     if($username_available !== 0){
                         
                          $error['error'] = TRUE;
-                         $error['msg'] = 'The Username provided: <strong>'.$post['username'].'</strong> already exist.<br/>Please try again.';
+                         $error['msg'] = 'The Username provided: '.$post['username'].' already exist. Please try again.';
 						 
 						 $result = json_encode(array("status"=>0, "message"=>"action failed", "data"=>$error));
 						 print_r($result);  exit;
@@ -101,8 +106,8 @@ class Register extends CI_Controller {
                     }else if(!preg_match('/^[A-Za-z][A-Za-z0-9_]{6,30}$/', $post['username'])){//^[a-zA-Z0-9][a-zA-Z0-9_]{2,29}$
                          
                         $error['error'] = TRUE;
-                        $error['msg'] = 'The Username provided: <strong>'.$post['username'].'</strong> not valid.<br/>Please try again.<br/> Must start with letter<br/>6-32 characters<br/>
-Letters, numbers, underscore only<br/>';
+                        $error['msg'] = 'The Username provided: '.$post['username'].' not valid. Please try again. Must start with letter 6-32 characters
+Letters, numbers, underscore only';
 						
 						$result = json_encode(array("status"=>0, "message"=>"action failed", "data"=>$error));
 						print_r($result);  exit;
@@ -111,7 +116,7 @@ Letters, numbers, underscore only<br/>';
                     if($email_available !== 0){
                     
                          $error['error'] = TRUE;
-                         $error['msg'] = 'The Email Address: <strong>'.$post['email'].'</strong> already exist.<br/>Please try again.';
+                         $error['msg'] = 'The Email Address: '.$post['email'].' already exist. Please try again.';
 						 
 						 $result = json_encode(array("status"=>0, "message"=>"action failed", "data"=>$error));
 						 print_r($result);  exit;
@@ -119,7 +124,7 @@ Letters, numbers, underscore only<br/>';
                         
                     }else if( !filter_var($post['email'], FILTER_VALIDATE_EMAIL) ) {
                          $error['error'] = TRUE;
-                         $error['msg'] = 'The Email Address: <strong>'.$post['email'].'</strong> is not valid.<br/>Please try again.';
+                         $error['msg'] = 'The Email Address: '.$post['email'].' is not valid. Please try again.';
 						 
 						 $result = json_encode(array("status"=>0, "message"=>"action failed", "data"=>$error));
 						 print_r($result);  exit;
@@ -129,8 +134,8 @@ Letters, numbers, underscore only<br/>';
                     if(!preg_match('/^[A-Za-z][A-Za-z0-9_]{6,30}$/', $post['password'])){//^[a-zA-Z0-9][a-zA-Z0-9_]{2,29}$
                          
                         $error['error'] = TRUE;
-                        $error['msg'] = 'The Password provided: <strong>'.$post['password'].'</strong> not valid.<br/>Please try again.<br/> Must start with letter<br/>6-32 characters<br/>
-Letters, numbers, underscore only<br/>';
+                        $error['msg'] = 'The Password provided: '.$post['password'].' not valid. Please try again. Must start with letter 6-32 characters
+Letters, numbers, underscore only';
 						
 						$result = json_encode(array("status"=>0, "message"=>"action failed", "data"=>$error));
 						print_r($result);  exit;
@@ -152,7 +157,7 @@ Letters, numbers, underscore only<br/>';
             if($error['error'] === FALSE){
             
                 
-                 
+                 unset($post['AppToken']);
                  unset($post['cpassword']);
                  unset($post['terms']);
                 
@@ -160,12 +165,17 @@ Letters, numbers, underscore only<br/>';
                    $post[$key] = mysql_real_escape_string($value);
                 }
                 
+				
+				
                 $post['password'] = encryptIt( $post['password'] );
 				
 				/******** Create Token *********/
 				 $post['token']	=  rand_string(32);
                 // $post['token'] =  encryptIt($tokenString); 
 				/********				*******/
+				
+				//echo '<pre>'; print_r($post); echo '</pre>';
+				//exit;
 				
                 $user_id = $this->users->create_user($post, FALSE);
                 
@@ -183,11 +193,8 @@ Letters, numbers, underscore only<br/>';
                     
                     $this->users->resetPasswordCode($userInfo->id, $resetCode, $resetString);
                 
-                   $userInfo = $this->users->get_user_by_email($post['email']);
+                    $userInfo = $this->users->get_user_by_email($post['email']);
                 
-                 // echo '<pre>'; print_r($userInfo); echo '</pre>';
-                // exit;
-                    
                     $this->email->from('support@carshelves.com', 'Carshelves.com');
                     $this->email->to($data_user->email); 
                     //$this->email->cc('another@another-example.com'); 
@@ -200,23 +207,21 @@ Letters, numbers, underscore only<br/>';
 					$message .= "Welcome to Carshelves,<br> Please click on this link to activate your account <a href='".base_url()."activation_code/activate/".$userInfo->id."/".$userInfo->code_digits."'>Activate Your Account</a>.<br/>";
 					$message .= "Best Regards,<br> Carshelves.com Team";
 					/***************************/
-					//echo $message;
-                    $this->email->message($message);	
-
+					
+                    $this->email->message($message);
                     $this->email->send();
-
-                    //echo $this->email->print_debugger();exit;
+					
                     $error['success'] = TRUE;
-                    $error['msg']   = '<strong>Activation Link:</strong><br/> was sent to your email address.';
-                   // echo '<pre>'; print_r($error); echo '<pre/>'; exit;
-                    $this->session->set_flashdata($error);    
-                    redirect(base_url().'login');
+                    $error['msg']   = 'Activation Link: was sent to your email address. Please confirm it';
+					
+	                $result = json_encode(array("status"=>1, "message"=>"action successful", "data"=>$error));
+				   	print_r($result);  exit;
                 }
                 
                 $error['success'] = TRUE;
-                $error['msg'] = ' Welcome to <strong>CarShelves.com</strong> <br/> Your account has been set. <br/> You will be receiving an <strong>Activation Email</strong> soon. <br/> Please check your Email box for a direct link to the <strong>Account Activation</strong>.';
+                $error['msg'] = ' Welcome to CarShelves.com Your account has been set. You will be receiving an Activation Email soon.  Please check your Email box for a direct link to the Account Activation.';
                 
-				$result = json_encode(array("status"=>0, "message"=>"action failed", "data"=>$error));
+				$result = json_encode(array("status"=>1, "message"=>"action sucessful", "data"=>$error));
 				print_r($result);  exit;
                 
             }
