@@ -252,6 +252,14 @@ class Users extends CI_Model
 		return FALSE;
 	}
     
+    function activateUser($userId){
+        
+        $this->db->set('code_digits', '');
+        $this->db->set('activated', 1);
+        $this->db->where('id', $userId);
+        $this->db->update($this->table_name);
+        return TRUE;
+    }
     /**
 	 * Activate user if activation key is valid.
 	 * Can be called for not activated users only.

@@ -2,15 +2,14 @@
 
 class Activation extends CI_Controller {
 
-	private $AppToken = 'qJB0rGtIn5UB1xG03efyCp10xP3wqM01';
-	//private Appoken = array()
+	private $AppToken = '';
     
-   // function __construct(){
-       // parent::__construct();
+   function __construct(){
+        parent::__construct();
         
-       
-       // $this->AppToken =  $this->token->getTokenByApp('MobileIosAppToken');
-    //}
+        $token = $this->token->getTokenByApp('MobileIosAppToken');
+        $this->AppToken =  $token->token;
+    }
     
 	public function index(){
 		$this->load->view('API_VIEW/activation');
@@ -28,6 +27,8 @@ class Activation extends CI_Controller {
         
         $post = $this->input->post();
         
+        
+       // echo '<pre>'; print_r($token); echo '</pre>';exit;
         if( isset($post['AppToken']) && !empty($post['AppToken']) ){
 			if($post['AppToken'] !== $this->AppToken){
 				$error['error'] = TRUE;
@@ -69,7 +70,7 @@ class Activation extends CI_Controller {
 						
 					if($user_info->code_digits == $post['digit_code']){
                         
-						$this->users->activate_user($user_info->id, $post['digit_code'], FALSE);
+						$this->users->activateUser($user_info->id);
 						
 						$error['success'] = TRUE;
                     	$error['msg']   = 'Your account has been activated';
