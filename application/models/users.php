@@ -48,6 +48,15 @@ class Users extends CI_Model
 		return NULL;
 	}
     
+    function get_user_by_codeDigits($code){
+    
+        $this->db->where('code_digits', $code);
+
+		$query = $this->db->get($this->table_name);
+		if ($query->num_rows() == 1) return $query->row();
+		return NULL;
+    }
+    
     /**
 	 * Get user record by Activation Code
 	 *
@@ -132,7 +141,7 @@ class Users extends CI_Model
 	 */
 	function get_user_by_reset_code($reset_code)
 	{
-		$this->db->where('code_digits', $reset_code);
+		$this->db->where('new_password_key', $reset_code);
 
 		$query = $this->db->get($this->table_name);
 		if ($query->num_rows() == 1) return $query->row();
@@ -146,6 +155,8 @@ class Users extends CI_Model
 	 */
 	function check_credentials($data)
 	{
+       //  echo '<pre>'; print_r($data); echo '</pre>';
+               // exit;
         $where = '( LOWER(username) = "'.$data['username_email'].'" OR LOWER(email) = "'.$data['username_email'].'" ) AND password = "'.$data['password'].'"' ;
 		$this->db->where($where);
 		$query = $this->db->get($this->table_name);
@@ -241,6 +252,14 @@ class Users extends CI_Model
 		return FALSE;
 	}
     
+    function activateUser($userId){
+        
+        $this->db->set('code_digits', '');
+        $this->db->set('activated', 1);
+        $this->db->where('id', $userId);
+        $this->db->update($this->table_name);
+        return TRUE;
+    }
     /**
 	 * Activate user if activation key is valid.
 	 * Can be called for not activated users only.
@@ -349,7 +368,7 @@ class Users extends CI_Model
        // echo $new_pass; exit;
 		$this->db->set('password', $new_pass);
 		$this->db->set('new_password_key', NULL);
-		$this->db->set('code_digits', '');
+		//$this->db->set('code_digits', '');
         $this->db->set('new_password_requested', '');
 		$this->db->where('id', $user_id);
 		//$this->db->where('new_password_key', $new_pass_key);
@@ -464,7 +483,8 @@ class Users extends CI_Model
     function resetPasswordCode($user_id, $reset_digits)
 	{
 		//$this->db->set('new_password_key', $reset_code);
-        $this->db->set('code_digits', $reset_digits);
+        //$this->db->set('code_digits', $reset_digits);
+        $this->db->set('new_password_key', $reset_digits);
 		$this->db->set('new_password_requested', date('Y-m-d H:i:s'));
 
 		//if ($record_ip)		$this->db->set('last_ip', $this->input->ip_address());
@@ -473,7 +493,21 @@ class Users extends CI_Model
 		$this->db->where('id', $user_id);
 		$this->db->update($this->table_name);
 	}
+    
+    function setCodeDigits($user_id, $reset_digits)
+	{
+        $this->db->set('code_digits', $reset_digits);
 
+		$this->db->where('id', $user_id);
+		$this->db->update($this->table_name);
+	}
+
+    
+    function checkResetCode($resetCode){
+        $this->db->where('new_password_key', $resetCode);
+        $query = $this->db->get($this->table_name);
+		return $query->num_rows() == 1;
+    }
 	/**
 	 * Update user info
 	 *

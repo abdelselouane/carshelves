@@ -2,7 +2,14 @@
 
 class Register extends CI_Controller {
 
-	private $AppToken = 'qJB0rGtIn5UB1xG03efyCp10xP3wqM01';
+	private $AppToken = '';
+    
+   function __construct(){
+        parent::__construct();
+        
+        $token = $this->token->getTokenByApp('MobileIosAppToken');
+        $this->AppToken =  $token->token;
+    }
 	
 	public function index()
 	{
@@ -135,7 +142,7 @@ Letters, numbers, underscore only';
                     if(!preg_match('/^[A-Za-z][A-Za-z0-9_]{6,30}$/', $post['password'])){//^[a-zA-Z0-9][a-zA-Z0-9_]{2,29}$
                          
                         $error['error'] = TRUE;
-                        $error['msg'] = 'The Password provided: '.$post['password'].' not valid. Please try again. Must start with letter 6-32 characters
+                        $error['msg'] = 'The Password provided is not valid. Please try again. Must start with letter 6-32 characters
 Letters, numbers, underscore only';
 						
 						$result = json_encode(array("status"=>0, "message"=>"action failed", "data"=>$error));
@@ -189,10 +196,10 @@ Letters, numbers, underscore only';
                 
                    // echo '<pre>'; print_r($userInfo); echo '</pre>';
                     
-                    $resetString    =  rand_string(16);
-                    $resetCode      =  url_encrypt($resetString); 
+                    $resetCode    =  rand_string(16);
+                   // $resetCode      =  encryptIt($resetString); 
                     
-                    $this->users->resetPasswordCode($userInfo->id, $resetCode);
+                    $this->users->setCodeDigits($userInfo->id, $resetCode);
                 
                     $userInfo = $this->users->get_user_by_email($post['email']);
                 
@@ -204,9 +211,7 @@ Letters, numbers, underscore only';
                     $this->email->subject('Account Activation - Carshelves.com');
 					
 					/***************************/
-					$message = "";
-					$message .= "Welcome to Carshelves,<br> Please click on this link to activate your account <a href='".base_url()."api/activation/activate/".$userInfo->id."/".$userInfo->code_digits."'>Activate Your Account</a>.<br/>";
-					$message .= "Best Regards,<br> Carshelves.com Team";
+					$message =  ' Activation Code: '.$userInfo->code_digits;
 					/***************************/
 					
                     $this->email->message($message);
