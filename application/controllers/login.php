@@ -46,7 +46,7 @@ class Login extends CI_Controller
     
     function logout(){
         $this->session->sess_destroy();
-        redirect(base_url().'login');
+        redirect(base_url().'welcome');
     }
     
     function signin(){
@@ -202,5 +202,5 @@ Letters, numbers, underscore only<br/>';
     
 }
 
-/* End of file contact.php */
-/* Location: ./application/controllers/contact.php */
+/* End of file login.php */
+/* Location: ./application/controllers/login.php */

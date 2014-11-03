@@ -46,10 +46,9 @@ class Users_api extends CI_Controller {
 		}
 		
 		
+		print_r(json_decode($result));  exit;
 		
-		echo '<pre>'; print_r(json_decode($result)); echo '</pre>'; exit;
-		return $result;
-	}
+		}
 
 	function get_users_by_activation_code($code)
 	{
@@ -282,7 +281,7 @@ class Users_api extends CI_Controller {
 			echo json_encode(array("status"=>1, "message"=>"action successful", "data"=>$response));
 	}
 
-	private function create_profile($user_id)
+	 function create_profile($user_id) 
 	{
 		$this->load->model('users');
 		$response =  $this->users->create_profile($user_id);
@@ -292,7 +291,7 @@ class Users_api extends CI_Controller {
 			echo json_encode(array("status"=>1, "message"=>"action successful", "data"=>$response));
 	}
 
-	private function delete_profile($user_id)
+	 function delete_profile($user_id)
 	{
 		$this->load->model('users');
 		$response =  $this->users->delete_profile($user_id);

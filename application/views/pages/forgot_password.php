@@ -6,13 +6,7 @@
 					<span>Forgot Password</span>
 				</div>
 				<div class="main_wrapper">
-					<!--div class="steps">
-						<span>1. Enter</span>
-						<span>2. preview</span>
-						<span>3. submit</span>
-					</div-->
-					<!--h1><strong>Register</strong> with us</h1-->
-                   
+					
 					<div class="sell_box sell_box_1">
                         <h2><strong>Forgot Password</strong></h2>
                         <!---->

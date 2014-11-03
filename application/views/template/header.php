@@ -12,17 +12,30 @@
             </div>
             <div style="font-size:14px;">
                 <?if(isset($user_id)){?>
-                <a href="<?=base_url().'login/logout'?>">Logout</a>
+                <a onclick="logout();">Logout</a>
                 <?}else{?>
                 <a href="<?=base_url().'login'?>">Login&nbsp;|&nbsp;</a>
                 <a href="<?=base_url().'register'?>">Register</a>
                 <?}?>
             </div>
             <div class="socials">
-                
-                <a href="#"><img src="<?=base_url().'images/';?>fb_icon.png" alt=""></a>
+            	<div class="row">
+                <a class="btn btn-social-icon btn-twitter">
+    				<i class="fa fa-twitter"></i>
+  				</a>
+  				 <a class="btn btn-social-icon btn-facebook">
+    				<i class="fa fa-facebook"></i>
+  				</a>
+  				 <a class="btn btn-social-icon btn-google-plus">
+    				<i class="fa fa-google-plus"></i>
+  				</a>
+  				<a class="btn btn-social-icon btn-youtube">
+    				<i class="fa fa-youtube"></i>
+  				</a>
+  				</div>
+                <!--a href="#"><img src="<?=base_url().'images/';?>fb_icon.png" alt=""></a>
                 <a href="#"><img src="<?=base_url().'images/';?>twitter_icon.png" alt=""></a>
-                <a href="#"><img src="<?=base_url().'images/';?>in_icon.png" alt=""></a>
+                <a href="#"><img src="<?=base_url().'images/';?>in_icon.png" alt=""></a-->
             </div>
         </div>
       
