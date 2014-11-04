@@ -138,8 +138,8 @@ Letters, numbers, underscore only<br/>';
                
                 $userInfo =  $this->users->check_credentials($post);
              
-                echo '<pre>'; print_r($userInfo); echo '</pre>';
-                exit;
+               // echo '<pre>'; print_r($userInfo); echo '</pre>';
+               // exit;
                
               if(is_object($userInfo) && !empty($userInfo)){ 
 					 
