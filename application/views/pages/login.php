@@ -14,6 +14,11 @@
 					<!--h1><strong>Register</strong> with us</h1-->
                     <div id="results"></>
 					<div class="sell_box sell_box_1">
+						<div class="alert alert-info" role="alert" style="width: 500px">
+                            <p>
+                                <br><br><br><br>
+                            </p>
+                        </div>
                         <h2><strong>Sign In</strong></h2>
                         <!---->  
                          <form id="loginForm" action="<?= base_url().'login/signin';?>" method="POST" class="form-vertical" data-toggle="validator">

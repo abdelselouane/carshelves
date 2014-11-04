@@ -138,8 +138,8 @@ Letters, numbers, underscore only<br/>';
                
                 $userInfo =  $this->users->check_credentials($post);
              
-               // echo '<pre>'; print_r($userInfo); echo '</pre>';
-                //exit;
+                echo '<pre>'; print_r($userInfo); echo '</pre>';
+                exit;
                
               if(is_object($userInfo) && !empty($userInfo)){ 
 					 
@@ -153,16 +153,14 @@ Letters, numbers, underscore only<br/>';
                         $this->email->subject('Account Activation - Carshelves.com');
 
                         /***************************/
-                        $message = "";
-                        $message .= "Welcome to Carshelves,<br> Please click on this link to activate your account <a href='".base_url()."api/activation/activate/".$userInfo->id."/".$userInfo->code_digits."'>Activate Your Account</a>.<br/>";
-                        $message .= "Best Regards,<br> Carshelves.com Team";
+                        $message =  " Activation Code:".$userInfo->code_digits;
                         /***************************/
 
                         $this->email->message($message);
                         $this->email->send();
 
                         $error['success'] = TRUE;
-                        $error['msg']   = 'Activation Link: was sent to your email address. Please confirm it';
+                        $error['msg']   = 'Activation Code was sent to your email address. Please REDIRECT user to Activation page';
 
                         $result = json_encode(array("status"=>1, "message"=>"action successful", "data"=>$error));
                         print_r($result);  exit;
@@ -170,7 +168,7 @@ Letters, numbers, underscore only<br/>';
                       }else{
                         
                         $error['success'] = TRUE;
-                        $error['msg']   = 'Login information is correct, please create SESSION';
+                        $error['msg']   = 'Login information is correct, Please create SESSION and give user access to the APP';
 
                         $result = json_encode(array("status"=>1, "message"=>"action successful", "data"=>$error));
                         print_r($result);  exit;  

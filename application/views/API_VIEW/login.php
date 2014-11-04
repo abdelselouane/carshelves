@@ -11,7 +11,7 @@
 		<label><a href="<?=base_url()?>api/forgotPassword/">Forgot Password?</a></label>
 	</div>
     <div>
-		<label><a href="<?=base_url()?>api/activation/">Activate Your Account</a></label>
+		<label><a href="<?=base_url()?>api/activation/">Account Activation</a></label>
 	</div>
 	<div>
 		<div><input type="hidden" value="qJB0rGtIn5UB1xG03efyCp10xP3wqM01" name="AppToken" id="AppToken" /></div>
