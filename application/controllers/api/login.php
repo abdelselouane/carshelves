@@ -144,7 +144,16 @@ Letters, numbers, underscore only<br/>';
               if(is_object($userInfo) && !empty($userInfo)){ 
 					 
 					  if( isset( $userInfo->activated ) && $userInfo->activated == 0){
+					  	
+						$resetCode    =  rand_string(16);
+						  
+		                $this->users->setCodeDigits($userInfo->id, $resetCode);
+                
+                    	$userInfo = $this->users->get_user_by_id($userInfo->id, FALSE);
                       
+					  	//echo '<pre>'; print_r($userInfo); echo '</pre>';
+               			//exit;
+					  
                         $this->email->from('support@carshelves.com', 'Carshelves.com');
                         $this->email->to($userInfo->email); 
                         //$this->email->cc('another@another-example.com'); 
