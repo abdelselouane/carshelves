@@ -87,6 +87,14 @@ class AppToken extends CI_Controller {
 				print_r($result);  exit;
 		}	
 	}
+
+	public function getTerms(){
+		
+		$terms = $this->token->getTerms(1);
+		//echo '<pre>'; print_r($terms); echo '</pre>';exit;
+		$result = json_encode(array("status"=>1, "message"=>"action succeed", "data"=>$terms->terms));
+		print_r($result);  exit;
+	}
 	
 }
 

@@ -36,6 +36,15 @@ class Token extends CI_Model {
 		}
 		//echo '<pre>'; print_r($record); echo '</pre>'; exit;
 	}
+	
+	function getTerms($id)
+	{
+        $this->db->where('id', $id);
+        $query = $this->db->get('terms');
+		//echo '<pre>'; print_r($query->result_array()); echo '</pre>';exit;
+        if ($query->num_rows() == 1) return $query->row();
+          return NULL;
+    }
 }
 
 
