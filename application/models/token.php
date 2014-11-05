@@ -22,6 +22,20 @@ class Token extends CI_Model {
         if ($query->num_rows() == 1) return $query->row();
           return NULL;
     }
+	
+	function setTokenByname($appName, $newToken){
+		
+		$record = $this->getTokenByApp($appName);
+		if(is_object($record) && !empty($record)){
+			$this->db->set('token', $newToken);
+			$this->db->where('id', $record->id);
+			$this->db->update($this->table_name);
+			return TRUE;
+		}else{
+			return FALSE;
+		}
+		//echo '<pre>'; print_r($record); echo '</pre>'; exit;
+	}
 }
 
 
