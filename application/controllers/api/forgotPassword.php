@@ -3,7 +3,14 @@
 class ForgotPassword extends CI_Controller
 {
 
-    private $AppToken = 'qJB0rGtIn5UB1xG03efyCp10xP3wqM01';
+    private $AppToken = '';
+    
+   function __construct(){
+        parent::__construct();
+        
+        $token = $this->token->getTokenByApp('MobileIosAppToken');
+        $this->AppToken =  $token->token;
+    }
     
 	function index()
 	{
@@ -79,7 +86,7 @@ class ForgotPassword extends CI_Controller
                     //$this->email->bcc('them@their-example.com'); 
 
                     $this->email->subject('Reset Your Password Link');
-					$message = 'Here is your temporary reset code : '.$userInfo->new_password_key;
+					$message = 'Here is your temporary reset code : '.$resetString;
                     $this->email->message($message);	
 
                     $this->email->send();

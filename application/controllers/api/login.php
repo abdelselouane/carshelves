@@ -2,7 +2,14 @@
 
 class Login extends CI_Controller {
 
-	private $AppToken = 'qJB0rGtIn5UB1xG03efyCp10xP3wqM01';
+	private $AppToken = '';
+    
+   function __construct(){
+        parent::__construct();
+        
+        $token = $this->token->getTokenByApp('MobileIosAppToken');
+        $this->AppToken =  $token->token;
+    }
 	
 	public function index()
 	{

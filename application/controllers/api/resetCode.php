@@ -3,7 +3,14 @@
 class ResetCode extends CI_Controller
 {
 
-    private $AppToken = 'qJB0rGtIn5UB1xG03efyCp10xP3wqM01';
+    private $AppToken = '';
+    
+   function __construct(){
+        parent::__construct();
+        
+        $token = $this->token->getTokenByApp('MobileIosAppToken');
+        $this->AppToken =  $token->token;
+    }
     
 	function index()
 	{
@@ -97,6 +104,8 @@ Letters, numbers, underscore only';
                 $userInfo = $this->users->get_user_by_reset_code($post['resetCode']);
                 
                 if(is_object($userInfo) && !empty($userInfo)){
+                    
+                    $post['password'] = encryptIt( $post['password'] );
                     
                     $this->users->reset_password($userInfo->id, $post['password']);
                     

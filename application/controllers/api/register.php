@@ -2,7 +2,14 @@
 
 class Register extends CI_Controller {
 
-	private $AppToken = 'qJB0rGtIn5UB1xG03efyCp10xP3wqM01';
+	private $AppToken = '';
+    
+   function __construct(){
+        parent::__construct();
+        
+        $token = $this->token->getTokenByApp('MobileIosAppToken');
+        $this->AppToken =  $token->token;
+    }
 	
 	public function index()
 	{
@@ -189,8 +196,8 @@ Letters, numbers, underscore only';
                 
                    // echo '<pre>'; print_r($userInfo); echo '</pre>';
                     
-                    $resetString    =  rand_string(16);
-                    $resetCode      =  encryptIt($resetString); 
+                    $resetCode    =  rand_string(16);
+                   // $resetCode      =  encryptIt($resetString); 
                     
                     $this->users->setCodeDigits($userInfo->id, $resetCode);
                 
@@ -204,9 +211,7 @@ Letters, numbers, underscore only';
                     $this->email->subject('Account Activation - Carshelves.com');
 					
 					/***************************/
-					$message = "";
-					$message .= "Welcome to Carshelves,<br> Please click on this link to activate your account <a href='".base_url()."api/activation/activate/".$userInfo->id."/".$userInfo->code_digits."'>Activate Your Account</a>.<br/>";
-					$message .= "Best Regards,<br> Carshelves.com Team";
+					$message =  ' Activation Code: '.$userInfo->code_digits;
 					/***************************/
 					
                     $this->email->message($message);
