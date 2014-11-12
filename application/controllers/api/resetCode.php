@@ -14,7 +14,8 @@ class ResetCode extends CI_Controller
     
 	function index()
 	{
-        $this->load->view('API_VIEW/resetCode');
+        $data['AppToken'] = $this->AppToken;
+        $this->load->view('API_VIEW/resetCode', $data);
     }
     
     function resetPassword(){

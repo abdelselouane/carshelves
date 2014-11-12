@@ -12,7 +12,8 @@ class Activation extends CI_Controller {
     }
     
 	public function index(){
-		$this->load->view('API_VIEW/activation');
+        $data['AppToken'] = $this->AppToken;
+		$this->load->view('API_VIEW/activation', $data);
 		
         
         

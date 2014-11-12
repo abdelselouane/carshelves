@@ -14,7 +14,8 @@ class ForgotPassword extends CI_Controller
     
 	function index()
 	{
-        $this->load->view('API_VIEW/forgotPassword');
+        $data['AppToken'] = $this->AppToken;
+        $this->load->view('API_VIEW/forgotPassword', $data);
     }
     
     function checkEmail(){

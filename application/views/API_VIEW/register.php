@@ -1,4 +1,6 @@
-
+<div style="float:right;">
+    <a href="<?=base_url();?>api/api">Back To Navigation</a>
+</div>
 <form action="<?=base_url()?>api/register/registerUser" method="POST" >
 	<div>
 		<label>Username:</label>

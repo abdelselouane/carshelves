@@ -1,3 +1,6 @@
+<div style="float:right;">
+    <a href="<?=base_url();?>api/api">Back To Navigation</a>
+</div>
 <form action="<?=base_url()?>api/forgotPassword/checkEmail" method="POST" >
 	<div>
 		<label>Email Address:</label>

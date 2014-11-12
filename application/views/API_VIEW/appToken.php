@@ -1,10 +1,13 @@
+<div style="float:right;">
+    <a href="<?=base_url();?>api/api">Back To Navigation</a>
+</div>
 <form action="<?=base_url()?>api/appToken/getToken" method="POST" >
 	<div>
 		<label>AppToken:</label>
 		<div>
 			<select name="appToken" id="appToken">
 				<option value="MobileIosAppToken">Mobile IOS</option>
-				<option value="MobileAndroidAppToken">Mobile Android</option>
+				<!--option value="MobileAndroidAppToken">Mobile Android</option-->
 			</select>
 		</div>
 	</div>

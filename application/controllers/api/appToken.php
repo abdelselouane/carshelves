@@ -59,6 +59,8 @@ class AppToken extends CI_Controller {
 		
 			if($post['appToken']){
 				
+                /** No Code treating ANDROID APP yet **/
+                
 				$name		= $post['appToken'];
 				$newToken	= rand_string(32);
 				

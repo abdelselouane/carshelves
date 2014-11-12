@@ -1,3 +1,6 @@
+<div style="float:right;">
+    <a href="<?=base_url();?>api/api">Back To Navigation</a>
+</div>
 <form action="<?=base_url()?>api/resetCode/resetPassword" method="POST" >
 	<div>
 		<label>Reset Code:</label>

@@ -14,8 +14,9 @@ class Login extends CI_Controller {
 	public function index()
 	{
         $post = $this->input->post();
-        echo '<pre>'; print_r(); echo '</pre>';exit;
-        $this->load->view('API_VIEW/login');
+        //echo '<pre>'; print_r(); echo '</pre>';exit;
+        $data['AppToken'] = $this->AppToken;
+        $this->load->view('API_VIEW/login', $data);
 		
 		/*$error['error'] = TRUE;
         $error['msg'] = 'Sorry, you need to specify what function you are looking for to get an answer back.';
@@ -24,6 +25,14 @@ class Login extends CI_Controller {
 		print_r($result);  exit;*/
 	}
 	
+     function logout(){
+        $this->session->sess_destroy();
+        $error['success'] = TRUE;
+        $error['msg'] = 'The App Session Logged Out.';
+
+        $result = json_encode(array("status"=>1, "message"=>"action success", "data"=>$error));
+        print_r($result);  exit;
+    }
 	
     function signin(){
         
