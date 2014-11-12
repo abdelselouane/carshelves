@@ -203,4 +203,8 @@ Letters, numbers, underscore only<br/>';
 }
 
 /* End of file login.php */
+<<<<<<< HEAD
 /* Location: ./application/controllers/login.php */
+=======
+/* Location: ./application/controllers/login.php */
+>>>>>>> 6b2ba8a060749817280d6185d1d7dda3f0659d2f

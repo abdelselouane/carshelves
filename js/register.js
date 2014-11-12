@@ -84,6 +84,85 @@ $(document).ready(function() {
     });
     
     	
+	$('#completeRegisterForm').bootstrapValidator({
+       // message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            username: {
+                message: 'The username is not valid',
+                validators: {
+                    notEmpty: {
+                        message: '<span class="error">The username is required and cannot be empty</span>'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: '<span class="error">The username must be more than 6 and less than 30 characters long</span>'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_]+$/,
+                        message: '<span class="error">The username can only consist of alphabetical, number and underscore</span>'
+                    }
+                }
+            },
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: '<span class="error">The password is required and cannot be empty</span>'
+                    },
+                    stringLength: {
+                        min: 8,
+                        max: 30,
+                        message: '<span class="error">The password must be more than 8 and less than 30 characters long</span>'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_]+$/,
+                        message: '<span class="error">The password can only consist of alphabetical, number and underscore</span>'
+                    }
+                }
+            },
+            cpassword: {
+                validators: {
+                    notEmpty: {
+                        message: '<span class="error">Please Confirm your password</span>'
+                    },
+                    stringLength: {
+                        min: 8,
+                        max: 30,
+                        message: '<span class="error">The password must be more than 6 and less than 30 characters long</span>'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_]+$/,
+                        message: '<span class="error">The password can only consist of alphabetical, number and underscore</span>'
+                    }
+                }
+            }
+        },
+        submitHandler: function(validator, form, submitButton) {
+            
+            $password = $('#password').val();
+            $cpassword = $('#cpassword').val();
+            
+            if( $password !== $cpassword ){
+                //alert("The passwords are not matching, please try again.");
+                $("#modal-password").modal({                    // wire up the actual modal functionality and show the dialog
+			      "backdrop"  : "static",
+			      "keyboard"  : true,
+			      "show"      : true                     // ensure the modal is shown immediately
+			    });
+                $('#cpassword').val('');
+                $('#cpassword').focus();
+            }else{
+                validator.defaultSubmit();
+            }
+        },
+        submitButtons: 'button[type="submit"]'
+    });
+
 
    /* $('button[type="submit"]').on ('click', function () {
         

@@ -97,6 +97,15 @@ class Register extends CI_Controller {
 					print_r($result);  exit;
                    
                     
+                }else if ($post['password'] === $post['username']){
+                   
+                    $error['error'] = TRUE;
+                    $error['msg'] = 'The Password can not be the same as the Username. Please try again';
+					
+					$result = json_encode(array("status"=>0, "message"=>"action failed", "data"=>$error));
+					print_r($result);  exit;
+                   
+                    
                 }else{
                    
                    $username_available = $this->users->is_username_available($post['username']);
@@ -114,8 +123,11 @@ class Register extends CI_Controller {
                     }else if(!preg_match('/^[A-Za-z][A-Za-z0-9_]{6,30}$/', $post['username'])){//^[a-zA-Z0-9][a-zA-Z0-9_]{2,29}$
                          
                         $error['error'] = TRUE;
-                        $error['msg'] = 'The Username provided: '.$post['username'].' not valid. Please try again. Must start with letter 6-32 characters
-Letters, numbers, underscore only';
+                        $error['msg'] = 'The Username provided: '.$post['username'].' not valid. Please try again. 
+                        Must start with letter.
+                        Between 6 to 32 characters.
+                        Letters, numbers, underscore are allowed.
+                        Numbers and underscore are not required.';
 						
 						$result = json_encode(array("status"=>0, "message"=>"action failed", "data"=>$error));
 						print_r($result);  exit;
@@ -142,8 +154,12 @@ Letters, numbers, underscore only';
                     if(!preg_match('/^[A-Za-z][A-Za-z0-9_]{6,30}$/', $post['password'])){//^[a-zA-Z0-9][a-zA-Z0-9_]{2,29}$
                          
                         $error['error'] = TRUE;
-                        $error['msg'] = 'The Password provided is not valid. Please try again. Must start with letter 6-32 characters
-Letters, numbers, underscore only';
+                        $error['msg'] = 'The Password provided is not valid, Please try again.
+                        Must be different than Username.
+                        Must start with letter.
+                        Between 6 to 32 characters.
+                        Letters, numbers, underscore are allowed.
+                        Nunmbers and underscore are not required';
 						
 						$result = json_encode(array("status"=>0, "message"=>"action failed", "data"=>$error));
 						print_r($result);  exit;

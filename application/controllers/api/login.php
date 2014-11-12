@@ -13,6 +13,8 @@ class Login extends CI_Controller {
 	
 	public function index()
 	{
+        $post = $this->input->post();
+        echo '<pre>'; print_r(); echo '</pre>';exit;
         $this->load->view('API_VIEW/login');
 		
 		/*$error['error'] = TRUE;
@@ -95,8 +97,8 @@ class Login extends CI_Controller {
                 }else if(!preg_match('/^[A-Za-z][A-Za-z0-9_]{6,30}$/', $post['username_email'])){//^[a-zA-Z0-9][a-zA-Z0-9_]{2,29}$
 
                     $error['error'] = TRUE;
-                    $error['msg'] = 'The Username provided: <strong>'.$post['username_email'].' not valid. Please try again. Must start with letter 6-32 characters
-    Letters, numbers, underscore only';
+                    $error['msg'] = 'The Username provided: <strong>'.$post['username_email'].' not valid. Please try again. Must start with letter, 6-32 characters,
+    letters, numbers, underscore only';
                     
                     $result = json_encode(array("status"=>0, "message"=>"action failed", "data"=>$error));
 				    print_r($result);  exit;
@@ -139,12 +141,29 @@ Letters, numbers, underscore only<br/>';
                 $userInfo =  $this->users->check_credentials($post);
              
                // echo '<pre>'; print_r($userInfo); echo '</pre>';
+<<<<<<< HEAD
                 //exit;
+=======
+               // exit;
+>>>>>>> 6b2ba8a060749817280d6185d1d7dda3f0659d2f
                
               if(is_object($userInfo) && !empty($userInfo)){ 
 					 
 					  if( isset( $userInfo->activated ) && $userInfo->activated == 0){
+<<<<<<< HEAD
                       
+=======
+					  	
+						$resetCode    =  rand_string(16);
+						  
+		                $this->users->setCodeDigits($userInfo->id, $resetCode);
+                
+                    	$userInfo = $this->users->get_user_by_id($userInfo->id, FALSE);
+                      
+					  	//echo '<pre>'; print_r($userInfo); echo '</pre>';
+               			//exit;
+					  
+>>>>>>> 6b2ba8a060749817280d6185d1d7dda3f0659d2f
                         $this->email->from('support@carshelves.com', 'Carshelves.com');
                         $this->email->to($userInfo->email); 
                         //$this->email->cc('another@another-example.com'); 
@@ -153,16 +172,24 @@ Letters, numbers, underscore only<br/>';
                         $this->email->subject('Account Activation - Carshelves.com');
 
                         /***************************/
+<<<<<<< HEAD
                         $message = "";
                         $message .= "Welcome to Carshelves,<br> Please click on this link to activate your account <a href='".base_url()."api/activation/activate/".$userInfo->id."/".$userInfo->code_digits."'>Activate Your Account</a>.<br/>";
                         $message .= "Best Regards,<br> Carshelves.com Team";
+=======
+                        $message =  " Activation Code:".$userInfo->code_digits;
+>>>>>>> 6b2ba8a060749817280d6185d1d7dda3f0659d2f
                         /***************************/
 
                         $this->email->message($message);
                         $this->email->send();
 
                         $error['success'] = TRUE;
+<<<<<<< HEAD
                         $error['msg']   = 'Activation Link: was sent to your email address. Please confirm it';
+=======
+                        $error['msg']   = 'Activation Code was sent to your email address. Please REDIRECT user to Activation page';
+>>>>>>> 6b2ba8a060749817280d6185d1d7dda3f0659d2f
 
                         $result = json_encode(array("status"=>1, "message"=>"action successful", "data"=>$error));
                         print_r($result);  exit;
@@ -170,7 +197,11 @@ Letters, numbers, underscore only<br/>';
                       }else{
                         
                         $error['success'] = TRUE;
+<<<<<<< HEAD
                         $error['msg']   = 'Login information is correct, please create SESSION';
+=======
+                        $error['msg']   = 'Login information is correct, Please create SESSION and give user access to the APP';
+>>>>>>> 6b2ba8a060749817280d6185d1d7dda3f0659d2f
 
                         $result = json_encode(array("status"=>1, "message"=>"action successful", "data"=>$error));
                         print_r($result);  exit;  
