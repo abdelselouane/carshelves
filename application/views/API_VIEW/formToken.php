@@ -8,5 +8,5 @@
 			</select>
 		</div>
 	</div>
-	<div><input type="submit" value="GENERATE NEW"/></div>
+	<div><input type="submit" value="Generate New AppToken"/></div>
 </form>

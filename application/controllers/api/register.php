@@ -19,8 +19,8 @@ class Register extends CI_Controller {
 		
 		$result = json_encode(array("status"=>0, "message"=>"action failed", "data"=>$error));
 		print_r($result);  exit;*/
-		
-		$this->load->view('API_VIEW/register');
+		$data['AppToken'] = $this->AppToken;
+		$this->load->view('API_VIEW/register', $data);
 	}
 	
 	
