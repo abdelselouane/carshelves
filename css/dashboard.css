@@ -66,6 +66,29 @@ body {
   background-color: #428bca;
 }
 
+.nav-list > .active > a,
+.nav-list > .active > a:hover,
+.nav-list > .active > a:focus {
+color: #fff;
+background-color: #CE563F;
+}
+
+.nav-sub-list > .active > a,
+.nav-sub-list > .active > a:hover,
+.nav-sub-list > .active > a:focus {
+color: #fff;
+background-color: #155C5D;
+}
+/*
+ * API Results 
+ */
+
+.result-form{
+	display:none;
+	/*border:2px solid #C12E2A;*/
+	padding: 15px;
+	margin:10px;
+}
 
 /*
  * Main content

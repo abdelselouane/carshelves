@@ -12,16 +12,20 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<?=base_url();?>css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="<?=base_url();?>css/dashboard.css" rel="stylesheet">
 
+	<!-- codeMInor css-->
+	<link rel="stylesheet" href="<?=base_url();?>css/codeminor/codemirror.css">
+	<link rel="stylesheet" href="<?=base_url();?>css/codeminor/paraiso-dark.css">
+	
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="<?=base_url();?>js/ie-emulation-modes-warning.js"></script>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="<?=base_url();?>js/ie10-viewport-bug-workaround.js"></script>
+    
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -30,7 +34,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body class="">
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -67,5 +71,67 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="<?=base_url();?>js/bootstrap.min.js"></script>
+    
+    <script src="<?=base_url();?>js/codeminor/codemirror.js"></script>
+	<script src="<?=base_url();?>js/codeminor/javascript.js"></script>
+    
+    <script type="text/javascript">
+    	
+    	var editor = CodeMirror.fromTextArea(document.getElementById("demotext"), {
+	      lineNumbers: true,
+	      mode: "application/ld+json",
+	      theme: "paraiso-dark",
+	      indentUnit: 1,
+	      smartIndent: true,
+	      tabSize: 3,
+	      lineWrapping: true,
+	      showCursorWhenSelecting: true,
+	      historyEventDelay: 10,
+
+	      
+	    });
+    	
+    	
+    	
+    	$(document).ready(function () {
+			
+			$(".link_html").click(function(){
+				
+				//alert(this.id);return false;
+				
+				$.ajax({
+	                url: "<?=base_url()?>api/"+this.id,
+	                type: 'post',
+	                dataType: 'html',
+	                success: function(response) {
+	                	
+	                	editor.setValue(response);
+	                	
+	                	var container  = $('#result1');
+                	
+	                	container.empty();
+	                	container.slideDown(300);
+	                    container.html(response);
+	                }
+	            });
+	      	});
+    	
+		    $('a.tree-toggler').click(function () {
+		        $(this).parent().children('ul.tree').toggle(300);
+		    });
+		});
+		
+	   function moveAlertClass(obj){
+                	
+			if(obj){
+				if(obj.hasClass("alert-info")) obj.removeClass("alert-info");
+				if(obj.hasClass("alert-success")) obj.removeClass("alert-success");
+				if(obj.hasClass("alert-warning")) obj.removeClass("alert-warning");
+				if(obj.hasClass("alert-danger")) obj.removeClass("alert-danger");
+			}
+			
+			return false;                		
+	   }
+    </script>
   </body>
 </html>

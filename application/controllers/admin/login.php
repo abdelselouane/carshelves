@@ -30,7 +30,7 @@ class Login extends CI_Controller
 	}
     
     function signin(){
-    
+    	redirect(base_url().'admin/dashboard');
         $post = $this->input->post();
         echo '<pre>'; print_r($post); echo '</pre>'; 
         exit;

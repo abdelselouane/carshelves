@@ -13,6 +13,7 @@ class Api extends CI_Controller
 	function index()
 	{
         $this->load->view('API_VIEW/api');
+		//$this->load->view('admin/login');
     }
     
     

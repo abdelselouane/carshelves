@@ -191,6 +191,24 @@ class Login extends CI_Controller {
                           
                       }else{
                         
+						/*****/
+						
+						//echo '<pre>'; print_r($userInfo); echo '</pre>';
+						
+						
+						$arrayInfo['user_id']	= $userInfo->id;
+                      	$arrayInfo['username']	= $userInfo->username;
+                      	$arrayInfo['email']		= $userInfo->email;
+                      
+                      	$this->session->set_userdata($arrayInfo);
+                      
+                      	$loginInfo = $this->session->all_userdata();
+                      
+					  	//echo '<pre>'; print_r($loginInfo); echo '</pre>';
+						//exit;
+                      	$this->users->update_login_info($loginInfo['user_id'], $loginInfo['ip_address'], gmdate("Y-d-m H:i:s", $loginInfo['last_activity']));
+						/*****/
+						
                         $error['success'] = TRUE;
                         $error['msg']   = 'Login information is correct, Please create SESSION and give user access to the APP';
 

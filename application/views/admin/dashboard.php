@@ -1,30 +1,62 @@
-
+	
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview</a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item</a></li>
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-            <li><a href="">More navigation</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-          </ul>
+            <ul class="nav nav-sidebar">
+                <li class="active"><a class="tree-toggler nav-header" href="#"><span class="caret"></span> App API </a>
+                    <ul class="nav nav-list tree">
+                        <li class="active"><a class="tree-toggler nav-header"><span class="caret"></span> AppToken </a>
+                            <ul class="nav nav-sub-list nav-list tree">
+                                <li><a id="appToken/formToken" class="link_html" href="#">Generate Token</a></li>
+                                <li><a id="appToken" class="link_html" href="#">Get Token</a></li>
+                            </ul>
+                       </li>
+                       <li class="active"><a class="tree-toggler nav-header"><span class="caret"></span> Login </a>
+                            <ul class="nav nav-sub-list nav-list tree">
+                                <li><a id="login" class="link_html" href="#">Sign In</a></li>
+                                <li><a id="activation" class="link_html" href="#">Activation</a></li>
+                                <li><a id="register" class="link_html" href="#">Registration</a></li>
+                                <!--li><a id="login/signout" class="link_html" href="#">Sign Out</a></li-->
+                            </ul>
+                       </li>
+                       <li class="active"><a class="tree-toggler nav-header"><span class="caret"></span> Password </a>
+                            <ul class="nav nav-sub-list nav-list tree">
+                                <li><a id="forgotPassword" class="link_html" href="#">Reset Code</a></li>
+                                <li><a id="resetCode" class="link_html" href="#">Reset Password</a></li>
+                            </ul>
+                       </li>
+                       <li class="active"><a class="tree-toggler nav-header"><span class="caret"></span> Profile </a>
+                            <ul class="nav nav-sub-list nav-list tree">
+                                <li><a id="" class="link_html" href="#">Profile Edit</a></li>
+                            </ul>
+                       </li>
+                    </ul>
+                </li>
+                <li class="divider"></li>
+                <li class="active"><a class="tree-toggler nav-header" href="#"><span class="caret"></span> Header 1 </a>
+                    <ul class="nav nav-list tree">
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                    </ul>
+                </li>
+                <li class="divider"></li>
+            </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Dashboard</h1>
-
-          <div class="row placeholders">
+          
+          <div class="row">
+            <div id="result1" class="col-md-4 result-form" >
+            	
+            </div>
+            <div id="result2" class="col-md-7">
+            	<textarea id="demotext">
+			 	</textarea>
+            	
+            </div>
+          </div>
+          <hr>
+          <!--div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
               <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Label</h4>
@@ -174,7 +206,7 @@
                 </tr>
               </tbody>
             </table>
-          </div>
+          </div-->
         </div>
       </div>
     </div>
