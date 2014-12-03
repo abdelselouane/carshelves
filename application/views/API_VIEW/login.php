@@ -1,3 +1,5 @@
+<h1 class="page-header">API</h1>
+<h2 class="sub-header">Sign In</h2>
 <div id="alert" class="alert alert-info" role="alert"><!-- success info warning danger-->
 	Please use the form below to get the API response.
 </div>

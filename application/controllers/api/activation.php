@@ -72,6 +72,12 @@ class Activation extends CI_Controller {
 					if($user_info->code_digits == $post['digit_code']){
                         
 						$this->users->activateUser($user_info->id);
+                        
+                        /* Create Profile For an active account */
+                        
+                        $this->profile_model->create_profile($user_info->id);
+                        
+                        /****************************************/
 						
 						$error['success'] = TRUE;
                     	$error['msg']   = 'Your account has been activated';

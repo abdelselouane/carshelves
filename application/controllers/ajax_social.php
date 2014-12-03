@@ -295,8 +295,4 @@ Letters, numbers, underscore only<br/>';
 }
 
 /* End of file Ajax_social.php */
-<<<<<<< HEAD
 /* Location: ./application/controllers/Ajax_social.php */
-=======
-/* Location: ./application/controllers/Ajax_social.php */
->>>>>>> 6b2ba8a060749817280d6185d1d7dda3f0659d2f

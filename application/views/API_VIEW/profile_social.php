@@ -1,24 +1,36 @@
 <h1 class="page-header">API</h1>
-<h2 class="sub-header">Forgot Password</h2>
+<h2 class="sub-header">Profile Social Media Info</h2>
 <div id="alert" class="alert alert-info" role="alert"><!-- success info warning danger-->
 	Please use the form below to get the API response.
 </div>
-<form id="forgotPassword_form" action="<?=base_url()?>api/forgotPassword/checkEmail" method="POST" role="form">
+<form id="profile_social" action="<?=base_url()?>api/register/registerUser" method="POST" class="" role="form">
+    <div class="form-group">
+		<label for="website">Website:</label>
+		<div><input type="text" value="" name="website" id="website" class="form-control" placeholder="Enter website URL" /></div>
+	</div>
 	<div class="form-group">
-		<label for="email">Email Address:</label>
-		<div><input type="text" value="" name="email" id="email" class="form-control" placeholder="Enter email" /></div>
+		<label for="facebook">Facebook:</label>
+		<div><input type="text" value="" name="facebook" id="facebook" class="form-control" placeholder="Enter facebook address" /></div>
 	</div>
     <div class="form-group">
+		<label for="twitter">Twitter:</label>
+		<div><input type="text" value="" name="twitter" id="twitter" class="form-control" placeholder="Enter twitter address" /></div>
+	</div>
+	<div class="form-group">
+		<label for="google_plus">Google Plus:</label>
+		<div><input type="text" value="" name="google_plus" id="google_plus" class="form-control" placeholder="Enter google plus address" /></div>
+	</div>
+	<div class="form-group">
 		<div><input type="hidden" value="<?= $AppToken ? $AppToken : '' ;?>" name="AppToken" id="AppToken" /></div>
 	</div>
 </form>
-<div><button class="btn btn-info" id="forgotPassword_submit" >Submit</button></div>
+<div><button class="btn btn-info" id="profile_social_submit" >Register Now</button></div>
 <script type="text/javascript">
 	$(document).ready(function () {
 
-      	$("#forgotPassword_submit").click(function(){
+      	$("#profile_social_submit").click(function(){
 			
-			var form	= $("#forgotPassword_form")
+			var form	= $("#profile_social")
 			var post	= form.serialize();
 			var url		= form.attr('action');
 			

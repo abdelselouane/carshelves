@@ -4,7 +4,7 @@
 class Users extends CI_Model
 {
 	private $table_name			= 'users';			// user accounts
-	private $profile_table_name	= 'user_profiles';	// user profiles
+	private $profile_table_name	= 'profile';	// user profiles
 
 	function __construct()
 	{
@@ -279,7 +279,7 @@ class Users extends CI_Model
 			$this->db->where('id', $user_id);
 			$this->db->update($this->table_name);
 
-			//$this->create_profile($user_id);
+			$this->create_profile($user_id);
 			return TRUE;
 		
 	}
