@@ -1,29 +1,5 @@
 <?php
-#
-# Portable PHP password hashing framework.
-#
-# Version 0.1 / genuine.
-#
-# Written by Solar Designer <solar at openwall.com> in 2004-2006 and placed in
-# the public domain.
-#
-# There's absolutely no warranty.
-#
-# The homepage URL for this framework is:
-#
-#	http://www.openwall.com/phpass/
-#
-# Please be sure to update the Version line if you edit this file in any way.
-# It is suggested that you leave the main version number intact, but indicate
-# your project name (after the slash) and add your own revision information.
-#
-# Please do not change the "private" password hashing method implemented in
-# here, thereby making your hashes incompatible.  However, if you must, please
-# change the hash type identifier (the "$P$") to something different.
-#
-# Obviously, since this code is in the public domain, the above are not
-# requirements (there can be none), but merely suggestions.
-#
+
 class PasswordHash {
 	var $itoa64;
 	var $iteration_count_log2;
@@ -117,12 +93,6 @@ class PasswordHash {
 		if (strlen($salt) != 8)
 			return $output;
 
-		# We're kind of forced to use MD5 here since it's the only
-		# cryptographic primitive available in all versions of PHP
-		# currently in use.  To implement our own low-level crypto
-		# in PHP would result in much worse performance and
-		# consequently in lower iteration counts and hashes that are
-		# quicker to crack (by non-PHP code).
 		if (PHP_VERSION >= '5') {
 			$hash = md5($salt . $password, TRUE);
 			do {
@@ -161,14 +131,6 @@ class PasswordHash {
 
 	function gensalt_blowfish($input)
 	{
-		# This one needs to use a different order of characters and a
-		# different encoding scheme from the one in encode64() above.
-		# We care because the last character in our encoded string will
-		# only represent 2 bits.  While two known implementations of
-		# bcrypt will happily accept and correct a salt string which
-		# has the 4 unused bits set to non-zero, we do not want to take
-		# chances and we also do not want to waste an additional byte
-		# of entropy.
 		$itoa64 = './ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
 		$output = '$2a$';

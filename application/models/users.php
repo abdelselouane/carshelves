@@ -16,6 +16,8 @@ class Users extends CI_Model
 	}
 	/**
 	 * verify token by user_id
+     * @param	int
+	 * @param	varchar
 	 */
 	function verify_token($user_id, $token){
 		if( isset($user_id) && isset($token) ){

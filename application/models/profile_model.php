@@ -14,9 +14,10 @@ class Profile_model extends CI_Model {
 	}
     
     /**
-	 * Create an empty profile for a new user
+	 * Get user profile
 	 *
-	 * @param	int
+	 * @param	none
+     * @return profile info
 	 */
 	public function get_profiles()
 	{

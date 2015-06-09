@@ -14,14 +14,6 @@ class Activation extends CI_Controller {
 	public function index(){
         $data['AppToken'] = $this->AppToken;
 		$this->load->view('API_VIEW/activation', $data);
-		
-        
-        
-		/*$error['error'] = TRUE;
-        $error['msg'] = 'Sorry, you need to specify what function you are looking for to get an answer back.';
-		
-		$result = json_encode(array("status"=>0, "message"=>"action failed", "data"=>$error));
-		print_r($result);  exit;*/
 	}
 	
 	function activate(){
