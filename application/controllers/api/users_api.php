@@ -48,7 +48,7 @@ class Users_api extends CI_Controller {
 		
 		print_r(json_decode($result));  exit;
 		
-		}
+    }
 
 	function get_users_by_activation_code($code)
 	{
